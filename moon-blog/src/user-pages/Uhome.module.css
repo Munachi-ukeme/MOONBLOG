@@ -1,0 +1,149 @@
+*{
+    padding: 0;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, rgb(229, 176, 229) 65%, #dcc5c5 70%);
+  padding: 60px 20px;
+  border-top-right-radius: 35px;
+  border-top-left-radius: 35px;
+}
+
+.heroContent{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.textcontainer{
+    flex: 1;
+    padding-right: 40px;
+}
+
+.heroTitle {
+  font-size: 55px;
+  margin-bottom: 20px;
+  font-weight: 550;
+  color: #000000;
+}
+
+.heroSubtitle {
+  font-size: 25px;
+  margin-bottom: 30px;
+  color: black;
+  font-weight: 500;
+}
+
+.herobtn {
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 130px;
+  height: 50px;
+  margin-left: 200px;
+}
+
+.herobtn:hover {
+  background-color: rgb(54, 30, 30); 
+}
+
+.imagecontainer {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: -110px;
+}
+.image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+.cardcontainer{
+    background-color: #f0f0f0;
+}
+
+.bloglist{
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(400px, 3fr));
+   padding: 20px;
+   gap: 20px;
+}
+
+.blogcard{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.blogcard:hover{
+    transform: translateY(-5px);
+}
+
+.blogtitle{
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.blogauthor{
+    font-size: 17px;
+    margin-bottom: 10px;
+    font-weight: 550;
+}
+
+.blogbody{
+    font-size: 17px;
+    line-height: 25px;
+}
+
+.blogcategory{
+     font-size: 17px;
+    margin-bottom: 10px;
+    font-weight: 550;
+}
+
+
+.title{
+    text-align: center;
+    font-size: 35px;
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+.readmore{
+    width: 300px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+    margin-left: 60px;
+    margin-top: 10px;
+    font-size: 20px;
+    background-color: #d63b0c;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.readmore:hover{
+    background-color: #bc370f;
+    color: #fffdfd;
+}
+
+

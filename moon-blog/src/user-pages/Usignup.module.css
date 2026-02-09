@@ -1,0 +1,116 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to right, rgb(229, 176, 229) 65%, #dcc5c5 70%);
+    height: 100vh;
+    align-items: center;
+}
+
+.form{
+    background-color: gainsboro;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 31rem;
+
+}
+
+.formbag{
+    display: flex;
+    flex-direction: column;
+}
+
+.containername{
+    text-align: center;
+    font-size: 35px;
+    padding-top: 25px;
+}
+
+.backarrow{
+    color: black;
+    padding-left: 10px;
+}
+
+.backarrow:hover{
+    color: rgb(90, 84, 84);
+}
+
+.label{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: -5px;
+    padding: 5px;
+    margin-left: 20px;
+}
+
+.input{
+    width: 350px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 20px;
+    margin-left: 25px;
+    padding: 10px;
+}
+
+.signupbtn{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    margin-left: 150px;
+    margin-top: 5px;
+    font-size: 17px;
+}
+
+.signupbtn:disabled{
+    cursor: not-allowed;
+    background-color: grey;
+    color: #666;
+}
+
+.signupbtn:not(:disabled){
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+}
+
+.signupbtn:active{
+    background-color: #666;
+    color: white;
+}
+
+.alreadyamember{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.signinoption{
+    display: inline-block;
+    width: 80px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    padding: 7px;
+}
+
+.signinoption:active{
+    background-color: grey;
+    color: white;
+}
+

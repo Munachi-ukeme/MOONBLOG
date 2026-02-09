@@ -1,0 +1,29 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.myblog{
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.loading{
+    text-align: center;
+    margin-top: 3.1rem;
+    font-size: 20px;
+    font-weight: 500;
+    color: green;
+}
+
+.emptyblog{
+    text-align: center;
+    color: red;
+    margin-top: 3.3rem;
+    font-size: 20px;
+    font-weight: 500;
+}

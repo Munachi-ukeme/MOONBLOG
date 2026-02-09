@@ -1,0 +1,104 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+    
+.footercontainer{
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    height: 60vh;
+}
+
+.newsletter{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.news{
+    font-size: 35px;
+    margin-left: -110px;
+}
+
+.emailinput{
+    padding: 10px;
+    font-size: 18px;
+    height: 45px;
+    width: 350px;
+    border-radius: 7px;
+    border: none;
+    margin-top: 10px;
+}
+
+.btn{
+    font-size: 20px;
+    width: 140px;
+    height: 43px;
+    border: none;
+    border-radius: 6px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.footerrow{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.quicklinks{
+    display: flex;
+    flex-direction: column;
+}
+
+.Lname{
+    font-size: 30px;
+}
+
+.link{
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(6, 4, 4);
+    line-height: 25px;
+    margin-left: 35px;
+}
+
+.link:hover{
+    text-decoration: underline;
+    color: #f2f2f2;
+}
+
+.linkcontainer {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.linkcontainer a{
+    color: black;
+}
+
+.linkcontainer a:hover{
+    color: rgb(158, 176, 161);
+}
+
+.contacts p{
+    margin-top: 10px;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+.bottomstrip{
+    justify-content: center;
+    display: flex;
+    margin-top: 80px;
+    font-size: 18px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,131 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to right, rgb(229, 176, 229) 65%, #dcc5c5 70%);
+    height: 100vh;
+    align-items: center;
+}
+
+.form{
+    background-color: gainsboro;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.loginformbag{
+    display: flex;
+    flex-direction: column;
+}
+
+.containername{
+    text-align: center;
+    font-size: 35px;
+    padding-top: 25px;
+}
+
+.backarrow{
+    color: black;
+    padding-left: 10px;
+}
+
+.backarrow:hover{
+    color: rgb(90, 84, 84);
+}
+
+.label{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: -5px;
+    padding: 5px;
+    margin-left: 10px;
+    
+}
+
+.input{
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 20px;
+    margin-left: 15px;
+    padding: 10px;
+    background-color: white;
+}
+
+.signinbtn{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    margin-left: 150px;
+    margin-top: 5px;
+    font-size: 17px;
+}
+
+.signinbtn:disabled{
+    cursor: not-allowed;
+    background-color: grey;
+    color: #666;
+}
+
+.signinbtn:not(:disabled){
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+}
+
+.signinbtn:active{
+    background-color: #666;
+    color: white;
+}
+
+.forget{
+    text-align: center;
+    padding: 20px;
+    color: green;
+    font-size: 20px;
+}
+
+.forgetpassword{
+   color: green;
+   text-decoration: none;
+   font-size: 20px;
+}
+
+.forgetpassword:hover{
+    color: black;
+}
+
+.notamember{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.signupoption{
+    display: inline-block;
+    width: 80px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    padding: 7px;
+}
+
+.signupoption:active{
+    background-color: grey;
+    color: white;
+}
