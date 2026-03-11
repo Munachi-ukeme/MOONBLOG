@@ -26,9 +26,11 @@ function MyBlogs() {
     const confirmDelete = window.confirm("Are you sure you want to delete this blog?");
     if (!confirmDelete) return;
 
+    const token = localStorage.getItem('token');
     try{
       const response = await fetch(`/api/blogs/${id}/delete`, {
         method: "DELETE",
+        headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`, },
       });
 
       if (response.ok) {
