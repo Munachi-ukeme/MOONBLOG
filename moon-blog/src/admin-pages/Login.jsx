@@ -1,17 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import style from "./AdminHome.module.css"; // i styled this part in AdminHome.module.css
+import { AuthContext } from '../user-pages/AuthContext';
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const {userLogin} = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log("Logging in with:", username, password);
 
-    navigate("/myblogs");
+    
+    try{
+      const loginInfo = await fetch("/api/auths/login", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({userName, password, role: "admin"}),
+      });
+
+      const data = await loginInfo.json();
+      console.log("Response:", data);
+
+      if (loginInfo.ok && data.token){
+        //update context + local storage
+        userLogin(data.token);
+
+        //redirect to myblogs
+        navigate("/myblogs");
+      } else{
+        alert(data.message || "Login failed");
+      }
+    } catch(err) {
+      console.error("Login error:", err);
+      alert("something went wrong. please try again");
+    }
   };
 
 
@@ -22,12 +46,12 @@ function Login() {
         {/* Add arrow icons for back, user, password */}
          
          <div className={style.loginformbag}>
-        <label htmlFor="username" className={style.label}>Username:</label>
+        <label htmlFor="userName" className={style.label}>Username:</label>
         <input
-        id='username'
+        id='userName'
         type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
         className={style.input}
          />
          </div>
@@ -46,7 +70,7 @@ function Login() {
         <button
         className={style.btn}
         type="submit"
-        disabled = {!username ||!password}
+        disabled = {!userName ||!password}
         >Login</button>
       </form>
       <p className={style.forget}>

@@ -12,8 +12,8 @@ const Ublogs = () => {
     const fetchBlogs = async () => {
       try {
         const url = category
-        ? `http://localhost:5000/api/blogs?category=${category}`
-        : `http://localhost:5000/api/blogs`;
+        ? `/api/blogs?category=${category}`
+        : `/api/blogs`;
 
         const response = await fetch(url);
         if (!response.ok) {
@@ -46,8 +46,8 @@ const Ublogs = () => {
         <div key = {blog._id} className={style.blogcard}>
           <h3 className={style.blogtitle}>{blog.title}</h3>
           <p className={style.blogauthor}>
-            <strong>By:</strong> {blog.author} | <em>{new Date(blog.date).toDateString()}</em>
-            {/* remember to add timestamp  in  mongoDB for blog.date to display time in the users ui*/}
+            <strong>By:</strong> {blog.author?.userName} | <em>{new Date(blog.createdAt).toDateString()}</em>
+            
           </p>
 
           <p className={style.blogbody}>{blog.body.substring(0, 300)}...</p>

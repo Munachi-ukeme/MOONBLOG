@@ -18,7 +18,8 @@ router.post("/create", authMiddleware, checkAdmin, async (req, res) => {
     await newPost.save();
     res.status(201).json(newPost);
   } catch (err) {
-    res.status(400).json({ message: "Error creating post", error: err });
+  console.error("Full error:", err); // see the real error in terminal
+  res.status(500).json({ message: "Error creating post", error: err.message });
   }
 });
 

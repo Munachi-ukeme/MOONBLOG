@@ -1,39 +1,45 @@
-import React, {useState} from 'react'
-import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import style from "./Unavbar.module.css";
+import { AuthContext } from "../user-pages/AuthContext"; // ✅ import context
 
-const Unavbar= ({ isAuthenticated, handleSignout, onCategoryChange}) => {
+const Unavbar = ({ onCategoryChange }) => {
+  const { isAuthenticated, logout } = useContext(AuthContext); // ✅ use context
 
   let navLinks;
 
-  //use "if" conditions to decide what links to show
-  if (!isAuthenticated){
-    //USER is NOT logged in
+  if (!isAuthenticated) {
+    // USER is NOT logged in
     navLinks = (
       <>
-      <Link to="/">Home</Link>
-      <Link to="/userAbout"> About</Link>
-      <Link to="/userBlogs">Blogs</Link>
-      <Link to="/userLogin">Login</Link>
-      <Link to="/userSignup">SignUp</Link>
+        <Link to="/">Home</Link>
+        <Link to="/userAbout">About</Link>
+        <Link to="/userBlogs">Blogs</Link>
+        <Link to="/userLogin">Login</Link>
+        <Link to="/userSignup">Signup</Link>
       </>
     );
   } else {
-    //user is logged in
-    navLinks =(
+    // USER is logged in
+    navLinks = (
       <>
-      <Link to="/">Home</Link>
-      <Link to="/userAbout">About</Link>
-      <Link to="/userBlogs">Blogs</Link>
-      <button onClick={handleSignout}>Logout</button>
+        <Link to="/userBlogs">Home</Link>
+        <Link to="/userAbout">About</Link>
+        <Link to="/userBlogs">Blogs</Link>
+        <button onClick={logout} className={style.logoutBtn}>Logout</button> {/* ✅ uses context logout */}
+  
       </>
     );
   }
+
   return (
     <div>
-      <header>
-        <Link to="/"><h1>Moon Blog</h1></Link>
+      <header className={style.navContainer}>
+        <Link to="/">
+          <h1 className={style.webName}>Moon Blog</h1>
+        </Link>
 
-        <nav>
+        <nav className={style.links}>
           {navLinks}
 
           {/* Category Dropdown */}
@@ -42,6 +48,8 @@ const Unavbar= ({ isAuthenticated, handleSignout, onCategoryChange}) => {
             <option value="Business">Business</option>
             <option value="Education">Education</option>
           </select>
+
+          
         </nav>
       </header>
     </div>

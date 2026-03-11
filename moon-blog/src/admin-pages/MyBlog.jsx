@@ -9,7 +9,7 @@ function MyBlogs() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/blogs");
+        const response = await fetch("/api/blogs");
         const data = await response.json();
         setBlogs(data);
       } catch (error) {
@@ -27,7 +27,7 @@ function MyBlogs() {
     if (!confirmDelete) return;
 
     try{
-      const response = await fetch(`http://localhost:5000/api/blogs/${id}`, {
+      const response = await fetch(`/api/blogs/${id}/delete`, {
         method: "DELETE",
       });
 
@@ -56,7 +56,7 @@ function MyBlogs() {
             <li key={blog._id}>
               <h3>{blog.title}</h3>
               <p>Category: {blog.category}</p>
-              <p>Author: {blog.author}</p>
+              <p>{blog.body}</p>
               <Link to={`/edit/${blog._id}`}>Edit</Link>
               {" | "}
               <button onClick={() => handleDelete(blog._id)}>Delete</button>

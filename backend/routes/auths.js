@@ -1,13 +1,14 @@
 //auth.js → generates JWT when user logs in.
 //status codes:
-// 401 is correct for invalid password.
-// 404 is correct for user not found.
-// 400 is fine for general errors.
+// 401 invalid password.
+// 404 not found.
+// 400  general errors.
 
 const express = require("express"); //Loads Express so you can create routes.
 const router = express.Router(); //Creates a mini router object to hold your signup/login routes.
 const User = require("../models/User"); //Loads your User model (auth schema).
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
+
 const jwt = require("jsonwebtoken");
 
 // Signup route
@@ -16,36 +17,51 @@ router.post("/signup", async (req, res) => {
     // Hash the password before saving
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
+    const role = req.body.adminCode === process.env.ADMIN_SECRET ? "admin" : "user";
+
     const newUser = new User({
-      username: req.body.username,
+      lastName: req.body.lastName,
+      firstName: req.body.firstName,
       email: req.body.email,
       password: hashedPassword,
-      role: req.body.role // comes from hidden input in your form
+      
+      userName: req.body.userName,
+
+      role: role // comes from hidden input in your form
     });
 
     await newUser.save(); //save the user in mongodb
-    res.status(201).json(newUser);
+
+    const token = jwt.sign(
+      {id: newUser._id, role: newUser.role },
+      process.env.JWT_SECRET,
+      {expiresIn: "1h"}
+    );
+
+    res.status(201).json({ message: "Signup successful", token, role:newUser.role });
   } catch (err) {
-    res.status(400).json({ message: "Error signing up", error: err });
+   console.error("Signup error:", err); res.status(400).json({ message: "Error signing up", error: err.message });
   }
+  // console.log("Signup request body:", req.body);
+
 });
 
 
 // Login route
 router.post("/login", async (req, res) => {
-  try {
-    const user = await User.findOne({ email: req.body.email });
-    if (!user) return res.status(404).json({ message: "User not found" });
+  try { //This code check if user already existed
+    const user = await User.findOne({ userName: req.body.userName });
+    if (!user) return res.status(404).json({ message: "User not found. Please sign up" });
 
     // Compare entered password with stored hash
     const isMatch = await bcrypt.compare(req.body.password, user.password);
     if (!isMatch) return res.status(401).json({ message: "Invalid password" });
 
-    // Generate JWT
+    // Generate JWT and user login will expire in 1 hr
     const token = jwt.sign(
       {id: user._id, role: user.role},
       process.env.JWT_SECRET,
-      {expiresIn: "1h"}
+      {expiresIn: "7d"}
     );
 
     res.json({

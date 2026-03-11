@@ -1,25 +1,25 @@
 import React, {useState, useEffect} from 'react';
 // useParams gets the id for each post from the URL.
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 import { z } from "zod";
 import style from "./EditPost.module.css";
 
+
 function EditPost (){
     const {id} = useParams();
+    const navigate = useNavigate();
     const [title, setTitle] = useState('');
     const [category, setCategory] = useState('');
-    const [author, setAuthor] = useState('');
     const [body, setBody] = useState('');
     const [success, setSuccess] = useState('');
 
     // fetch blog data by ID 
     useEffect(() => {
         const fetchPost = async () => {
-            const response = await fetch(`http://localhost:5000/api/blogs/${id}`);
+            const response = await fetch(`/api/blogs/${id}`);
             const data = await response.json();
             setTitle(data.title);
             setCategory(data.category);
-            setAuthor(data.author);
             setBody(data.body);
         };
         fetchPost();
@@ -28,28 +28,33 @@ function EditPost (){
     // Handle update
     const handleSubmit = async (e) =>{
         e.preventDefault();
-        const updatedPost = { title, category, author, body };
+        const updatedPost = { title, category, body };
         
+
+        const token = localStorage.getItem('token');
         try{
-        const response = await fetch(`http://localhost:5000/api/blogs/${id}`, {
+        const response = await fetch(`/api/blogs/${id}/edit`, {
             method: 'PUT',
-            headers: {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`, },
             body: JSON.stringify(updatedPost),
         });
 
+
         if (response.ok) {
+            
             setSuccess("Blog updated")
 
         //clear inputs after updated
         setTitle('');
         setCategory('');
-        setAuthor('');
         setBody('');
 
-        // Auto-hide success message after 3 seconds
+        // Auto-hide success message after 2 seconds
+
         setTimeout(() => {
             setSuccess('');
-        }, 3000);
+            navigate("/myblogs"); 
+        }, 1000);
         } else {
             setSuccess("Error updating blog")
         }
@@ -61,7 +66,6 @@ function EditPost (){
 const BlogSchema = z.object({
   title: z.string(),
   category: z.string(),
-  author: z.string(),
   body: z.string(),
 });
 
@@ -69,7 +73,6 @@ const BlogSchema = z.object({
 const result = BlogSchema.safeParse({
   title: "My Blog",
   category: "Tech",
-  author: "Munachi",
   body: "This is my post",
 });
 
@@ -94,25 +97,22 @@ if (!result.success) {
 
                 <div className={style.formbag}>
                     <label htmlFor="category" className={style.label}>Category:</label>
-                    <input
-                    type="text"
+                    <select 
                     value={category}
                     id='category'
-                    onChange={(e) => setCategory(e.target.value)}
-                    className={style.input}
-                    />
+                     required
+                     onChange={(e) => setCategory(e.target.value)}
+                     className={style.input}
+                    >
+
+                    <option value="">Select a category</option>
+                     <option value="Tech">Tech</option>
+                     <option value="Business">Business</option>
+                     <option value="Education">Education</option>
+                    </select>
+                    
                 </div>
 
-                <div className={style.formbag}>
-                    <label htmlFor="author" className={style.label}>Author:</label>
-                    <input
-                    type="text"
-                    id='author'
-                    value={author}
-                    onChange={(e) => setAuthor(e.target.value)}
-                    className={style.input}
-                    />
-                </div>
 
                 <div className={style.formbag}>
                     <label htmlFor="body" className={style.label}>Body:</label>

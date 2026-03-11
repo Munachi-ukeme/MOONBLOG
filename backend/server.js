@@ -8,7 +8,9 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+origin: "http://localhost:5173", // allow any route in frontend
+credentials: true}));
 app.use(express.json());
 
 
@@ -19,13 +21,15 @@ app.get("/", (req, res) => {
 });
 
 //import route files
-const authRoutes = require("./routes/auth"); 
 const postRoutes = require("./routes/postRoutes");
+const authsRoutes = require("./routes/auths");
+console.log("AuthsRoutes:", authsRoutes);
+
 
 
 //Mount routes
-app.use("/api/auth", authRoutes); // all auth endpoints start with /api/auth
-app.use("/api/posts", postRoutes); // all post endpoints start with /api/posts
+app.use("/api/auths", authsRoutes); // all auth endpoints  start with /api/auths
+app.use("/api/blogs", postRoutes); // all post endpoints start with /api/blogs
 
 // Start server
 const PORT = process.env.PORT || 5000;

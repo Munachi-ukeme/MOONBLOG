@@ -8,6 +8,7 @@ function AdminHome() {
   // This makes the signin form not to show. only page pic and signup
   const [showLogin, setShowLogin] = useState(false);
 
+  <Signup />
     if (showLogin){
         return(
           <div className={style.signincontainer}>
@@ -38,7 +39,7 @@ function AdminHome() {
             </div>
 
           <div className={style.signupright}>
-            <Signup />
+            <Signup setShowLogin={setShowLogin}/>
             <p className={style.alreadyanadmin}>
               Already an Admin? {""}
               <button onClick={() => setShowLogin(true)} className={style.signinoption}>Signin</button>
