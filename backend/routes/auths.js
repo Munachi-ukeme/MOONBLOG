@@ -50,7 +50,13 @@ router.post("/signup", async (req, res) => {
 // Login route
 router.post("/login", async (req, res) => {
   try { //This code check if user already existed
-    const user = await User.findOne({ userName: req.body.userName });
+    const user = await User.findOne({
+      $or: [
+        {email: req.body.email },
+        {userName: req.body.userName }
+
+      ] 
+    });
     if (!user) return res.status(404).json({ message: "User not found. Please sign up" });
 
     // Compare entered password with stored hash

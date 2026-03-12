@@ -13,7 +13,7 @@ function Usignup() {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const { login } = useContext(AuthContext); // ✅ use login from context
+  const { userLogin } = useContext(AuthContext); // ✅ use login from context
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,8 +46,8 @@ function Usignup() {
 
       // ✅ Update context + localStorage immediately
       if (data.token) {
-        login(data.token);
-        navigate("/userBlogs"); // redirect to blogs
+        userLogin(data.token);
+        navigate("/userLogin"); // redirect to blogs
       }
 
       // ✅ Clear form
