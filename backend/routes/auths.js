@@ -59,6 +59,9 @@ router.post("/login", async (req, res) => {
     });
     if (!user) return res.status(404).json({ message: "User not found. Please sign up" });
 
+    // ✅ add these two lines here
+console.log("Entered password:", req.body.password);
+console.log("Stored hash:", user.password);
     // Compare entered password with stored hash
     const isMatch = await bcrypt.compare(req.body.password, user.password);
     if (!isMatch) return res.status(401).json({ message: "Invalid password" });
