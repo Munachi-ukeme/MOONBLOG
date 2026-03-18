@@ -26,6 +26,12 @@ const Unavbar = ({ onCategoryChange }) => {
         <Link to="/userBlogs">Home</Link>
         <Link to="/userAbout">About</Link>
         <Link to="/userBlogs">Blogs</Link>
+        {/* Category Dropdown */}
+          <select onChange={(e) => onCategoryChange(e.target.value)}>
+            <option value="Tech">Tech</option>
+            <option value="Business">Business</option>
+            <option value="Education">Education</option>
+          </select>
         <button onClick={logout} className={style.logoutBtn}>Logout</button> {/* ✅ uses context logout */}
   
       </>
@@ -41,15 +47,6 @@ const Unavbar = ({ onCategoryChange }) => {
 
         <nav className={style.links}>
           {navLinks}
-
-          {/* Category Dropdown */}
-          <select onChange={(e) => onCategoryChange(e.target.value)}>
-            <option value="Tech">Tech</option>
-            <option value="Business">Business</option>
-            <option value="Education">Education</option>
-          </select>
-
-          
         </nav>
       </header>
     </div>

@@ -81,17 +81,8 @@ function App() {
             }
           />
           <Route path="/userLogin" element={<Ulogin />} />
-          <Route path="/userSignup" element={<Usignup />} />
-          <Route
-            path="/signout"
-            element={
-              <>
-                <Unavbar onCategoryChange={handleCategoryChange} />
-                <Uhome />
-                <Ufooter />
-              </>
-            }
-          />
+          <Route path="/userSignup" element={<Usignup />} />/
+         
         </Routes>
       </Router>
     </AuthProvider>
