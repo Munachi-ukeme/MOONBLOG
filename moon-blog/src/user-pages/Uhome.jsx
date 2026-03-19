@@ -76,7 +76,7 @@ const Uhome = () => {
 
             <p className={style.blogauthor}>
               <strong>By:</strong> {blog.author?.userName} | {""}
-              <em>{blog.date ? new Date(blog.date).toDateString() : "No date"}</em>
+              <em>{blog.createdAt ? new Date(blog.createdAt).toDateString() : "No date"}</em>
             </p>
 
             <Link to={`/blogDetails/${blog._id}`}>

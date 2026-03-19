@@ -59,6 +59,12 @@ function MyBlogs() {
               <h3>{blog.title}</h3>
               <p>Category: {blog.category}</p>
               <p>{blog.body}</p>
+
+              <p className={style.category}>
+              <strong>By:</strong> {blog.author?.userName} | {""}
+              <em>{blog.createdAt ? new Date(blog.createdAt).toDateString() : "No date"}</em>
+              </p>
+
               <Link to={`/edit/${blog._id}`}>Edit</Link>
               {" | "}
               <button onClick={() => handleDelete(blog._id)}>Delete</button>

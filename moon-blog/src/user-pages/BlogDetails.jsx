@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import style from "./BlogDetails.module.css";
 
 const BlogDetails = () => {
      const {id}= useParams(); // this get the blog ID from URL
@@ -10,7 +11,7 @@ const BlogDetails = () => {
      useEffect(() => {
         const fetchBlog = async () => {
             try{
-                const response = await fetch(`http://localhost:5000/api/blogs/${id}`);
+                const response = await fetch(`/api/blogs/${id}`);
                 if (!response.ok){
                     throw new Error("Failed to fetch blog");
                 }
@@ -31,23 +32,23 @@ const BlogDetails = () => {
   return ( 
 
     <div className="blog-details">
-        <h2>{blog.title}</h2>
+        <h2 className={style.blogTitle}>{blog.title}</h2>
 
-        <p> <strong>Category:</strong> {blog.category} </p>
-        <div> {blog.body} </div>
+        <p className={style.blogCategory}> <strong>Category:</strong> {blog.category} </p>
+        <div className={style.blogBody}> {blog.body} </div>
 
-        <p>
-            <strong> By: </strong> {blog.author} | {" "}
-            <em>{new Date(blog.date).toDateString()}</em>
+        <p className={style.blogAuthor}>
+            <strong> By: </strong> {blog.author?.userName} |{""}
+            <em>{blog.createdAt ? new Date(blog.createdAt).toDateString() : "No date"}</em>
         </p>
 
        {/* ✅ Back buttons */}
       <div className="back-buttons">
         <Link to="/#latest">
-          <button>← Back to Latest Blogs</button>
+          <button className={style.redirect}>← Back to Home</button>
         </Link>
         <Link to="/userBlogs">
-          <button>← Back to All Blogs</button>
+          <button className={style.redirects}>← Back to All Blogs</button>
         </Link>
         </div>
       
