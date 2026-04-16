@@ -26,7 +26,7 @@ router.post("/create", authMiddleware, checkAdmin, async (req, res) => {
 // Get all posts
 router.get("/", async (req, res) => {
   try {
-    const posts = await Post.find().populate("author", "username email");
+    const posts = await Post.find().populate("author", "userName email");
     res.json(posts);
   } catch (err) {
     res.status(500).json({ message: "Error fetching posts", error: err });
@@ -46,7 +46,7 @@ router.get("/category/:category", async (req, res) => {
 // Get single post by ID
 router.get("/:id", async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id).populate("author", "username email");
+    const post = await Post.findById(req.params.id).populate("author", "userName email");
     res.json(post);
   } catch (err) {
     res.status(500).json({ message: "Error fetching post", error: err });
