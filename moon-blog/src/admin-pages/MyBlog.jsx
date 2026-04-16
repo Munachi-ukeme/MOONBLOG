@@ -9,7 +9,7 @@ function MyBlogs() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("/api/blogs");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs`);
         const data = await response.json();
         setBlogs(data);
       } catch (error) {
@@ -28,7 +28,7 @@ function MyBlogs() {
 
     const token = localStorage.getItem('token');
     try{
-      const response = await fetch(`/api/blogs/${id}/delete`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs/${id}/delete`, {
         method: "DELETE",
         headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`, },
       });
@@ -54,8 +54,9 @@ function MyBlogs() {
         <p className={style.emptyblog}>No blogs found.</p>
       ) : (
         <ul>
+          <div className={style.bloglist}>
           {blogs.map((blog) => (
-            <li key={blog._id}>
+            <li key={blog._id} className={style.blogcard}>
               <h3>{blog.title}</h3>
               <p>Category: {blog.category}</p>
               <p>{blog.body}</p>
@@ -64,13 +65,15 @@ function MyBlogs() {
               <strong>By:</strong> {blog.author?.userName} | {""}
               <em>{blog.createdAt ? new Date(blog.createdAt).toDateString() : "No date"}</em>
               </p>
-
+              
               <Link to={`/edit/${blog._id}`}>Edit</Link>
               {" | "}
-              <button onClick={() => handleDelete(blog._id)}>Delete</button>
+              <button onClick={() => handleDelete(blog._id)} className={style.button}>Delete</button>
             </li>
           ))}
+           </div>
         </ul>
+       
       )}
     </div>
   );

@@ -20,7 +20,7 @@ const Uhome = () => {
   useEffect(() => {
     const fetchBlogs = async () =>{
       try{
-        const response = await fetch ("/api/blogs");
+        const response = await fetch (`${import.meta.env.VITE_API_URL}/api/blogs`);
         if (!response.ok) throw new Error ("Failed to fetch blogs");
         const data = await response.json();
 

@@ -17,7 +17,7 @@ function Signup({ setShowLogin }) {
     }
 
     try {
-      const response = await fetch("/api/auths/signup", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auths/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userName, email, password, adminCode: import.meta.env.VITE_ADMIN_CODE}),

@@ -2,20 +2,21 @@ import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import style from "./Ublogs.module.css";
 
-const Ublogs = () => {
+const Ublogs = ({ category }) => {
+  console.log("Category received:", category);
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [category, setCategory] = useState("");
+  
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const url = category
-        ? `/api/blogs?category=${category}`
+        ? `/api/blogs/category/${category}`
         : `/api/blogs`;
 
-        const response = await fetch(url);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}${url}`);
         if (!response.ok) {
           throw new Error("Failed to fetch blogs");
         }

@@ -16,7 +16,7 @@ function EditPost (){
     // fetch blog data by ID 
     useEffect(() => {
         const fetchPost = async () => {
-            const response = await fetch(`/api/blogs/${id}`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs/${id}`);
             const data = await response.json();
             setTitle(data.title);
             setCategory(data.category);
@@ -33,7 +33,7 @@ function EditPost (){
 
         const token = localStorage.getItem('token');
         try{
-        const response = await fetch(`/api/blogs/${id}/edit`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs/${id}/edit`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`, },
             body: JSON.stringify(updatedPost),

@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useState } from "react";
 import { AuthProvider } from "./user-pages/AuthContext"; // ✅ import provider
 
 
@@ -22,9 +23,10 @@ import ProtectedRoute from "./user-pages/ProtectedRoute";
 
 function App() {
   // handle category dropdown
+  const [selectedCategory, setSelectedCategory] = useState("");
   const handleCategoryChange = (category) => {
-    console.log("Selected category:", category);
-  };
+    setSelectedCategory(category); // ✅ updates state
+        };
 
   return (
     <AuthProvider>
@@ -64,7 +66,7 @@ function App() {
               <ProtectedRoute>
                 <>
                   <Unavbar onCategoryChange={handleCategoryChange} />
-                  <Ublogs />
+                  <Ublogs category={selectedCategory} />
                   <Ufooter />
                 </>
               </ProtectedRoute>
