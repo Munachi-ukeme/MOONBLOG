@@ -8,7 +8,7 @@
 .footercontainer{
     display: flex;
     flex-direction: column;
-    background-color: grey;
+    background-color: #FFFFFF ;
     height: 60vh;
 }
 
@@ -20,6 +20,7 @@
 .news{
     font-size: 35px;
     margin-left: -110px;
+    color: #1A1A2E;
 }
 
 .emailinput{
@@ -38,10 +39,14 @@
     height: 43px;
     border: none;
     border-radius: 6px;
-    background-color: black;
-    color: white;
+    background-color: #1A1A2E;
+    color: #FFFFFF;
     cursor: pointer;
     margin-left: 10px;
+}
+
+.btn:hover{
+    color: #F5A623;
 }
 
 .footerrow{
@@ -57,19 +62,20 @@
 
 .Lname{
     font-size: 30px;
+    color: #1A1A2E;
 }
 
 .link{
     font-size: 20px;
     text-decoration: none;
-    color: rgb(6, 4, 4);
+    color: #F5A623;
     line-height: 25px;
     margin-left: 35px;
 }
 
 .link:hover{
     text-decoration: underline;
-    color: #f2f2f2;
+    color: #E09112;
 }
 
 .linkcontainer {
@@ -79,11 +85,11 @@
 }
 
 .linkcontainer a{
-    color: black;
+    color: #F5A623;
 }
 
 .linkcontainer a:hover{
-    color: rgb(158, 176, 161);
+    color:  #E09112;
 }
 
 .contacts p{
@@ -91,6 +97,11 @@
     font-size: 17px;
     font-weight: 500;
     cursor: pointer;
+    color: #F5A623;
+}
+
+.contacts p:hover{
+    color:  #E09112;
 }
 
 
@@ -102,3 +113,6 @@
     cursor: pointer;
 }
 
+.bottomstrips{
+    color: #6B7280;
+}

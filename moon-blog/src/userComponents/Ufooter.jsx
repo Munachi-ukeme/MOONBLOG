@@ -40,24 +40,24 @@ const Ufooter = () => {
 
       <div className={style.contacts}>
         <h2 className={style.Lname}>Contact Info</h2>
-        <p> <FaEnvelope  /> {" "} favourukeme8@gmail.com</p> 
-        <p> <FaPhoneAlt  />{" "}09132227203</p>
-        <p> < FaMapMarkerAlt /> {" "} 2, Alhaji Kalejaiye Street, Shomolu, Lagos State.</p>
+        <p className={style.link}> <FaEnvelope  /> {" "} favourukeme8@gmail.com</p> 
+        <p className={style.link}> <FaPhoneAlt  />{" "}09132227203</p>
+        <p className={style.link}> < FaMapMarkerAlt /> {" "} 2, Alhaji Kalejaiye Street, Shomolu, Lagos State.</p>
       </div>
 
       <div className={style.socialMedia}>
         <h2 className={style.Lname}>Follow Us</h2>
         <div className={style.linkcontainer}>
-        <Link to="https://facebook.com/profile.php?id=61577318323288" target="_blank" rel="noopener noreferrer"> <FaFacebook size={24} /> </Link> 
-        <Link to="https://x.com/MoonCodes2006" target="_blank" rel="noopener noreferrer"> <FaTwitter size={24} /> </Link> 
-        <Link to="https://www.linkedin.com/in/munachi-ukeme-2389a8365" target="_blank" rel="noopener noreferrer"> <FaLinkedin size={24} /> </Link> 
-        <Link to="https://github.com/Munachi-ukeme" target="_blank" rel="noopener noreferrer"> <FaGithub size={24} /> </Link>
+        <Link to="https://facebook.com/profile.php?id=61577318323288" target="_blank" rel="noopener noreferrer" className={style.link}> <FaFacebook size={24} /> </Link> 
+        <Link to="https://x.com/MoonCodes2006" target="_blank" rel="noopener noreferrer" className={style.link}> <FaTwitter size={24} /> </Link> 
+        <Link to="https://www.linkedin.com/in/munachi-ukeme-2389a8365" target="_blank" rel="noopener noreferrer" className={style.link}> <FaLinkedin size={24} /> </Link> 
+        <Link to="https://github.com/Munachi-ukeme" target="_blank" rel="noopener noreferrer" className={style.link}> <FaGithub size={24} /> </Link>
         </div>
       </div>
       </div>
 
       <div className={style.bottomstrip}>
-        <p> <FaRegCopyright size={18}/> 2026 MoonBlog |All Rights Reserved | Privacy Policy | Terms of Use</p>
+        <p className={styles.bottomstrips}> <FaRegCopyright size={18}/> 2026 MoonBlog |All Rights Reserved | Privacy Policy | Terms of Use</p>
       </div>
       </div>
     </div>

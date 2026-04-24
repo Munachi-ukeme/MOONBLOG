@@ -12,13 +12,13 @@
     align-items: center;
     padding-top: 1.3rem;
     padding-bottom: 1.3rem;
-    background-color: #988989;
+    background-color: #1A1A2E;
     margin: 0px;
     height: 100px;
 }
 
 .webName{
-    color: whitesmoke;
+    color: #FFFFFF;
     font-size: 2.5rem;
 }   
 
@@ -30,11 +30,15 @@
 }
 
 .links a{
-    color: white;
+    color: #FFFFFF;
     font-weight: 530;
 }
 .links a:hover{
-    color: black;
+    color: #E09112;
+}
+
+.links a:active{
+  color: #F5A623;  
 }
 
 select{
@@ -53,9 +57,11 @@ select{
     border: none;
     font-size: 17px;
     cursor: pointer;
+    color:  #FFFFFF;
+    background-color:  #1A1A2E;
 }
 
 .logoutBtn:hover{
-    color: grey;
+    color: #F5A623;
 }
 
