@@ -57,7 +57,7 @@ const Ufooter = () => {
       </div>
 
       <div className={style.bottomstrip}>
-        <p className={styles.bottomstrips}> <FaRegCopyright size={18}/> 2026 MoonBlog |All Rights Reserved | Privacy Policy | Terms of Use</p>
+        <p className={style.bottomstrips}> <FaRegCopyright size={18}/> 2026 MoonBlog |All Rights Reserved | Privacy Policy | Terms of Use</p>
       </div>
       </div>
     </div>
