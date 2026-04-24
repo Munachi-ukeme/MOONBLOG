@@ -70,6 +70,7 @@ const Ulogin = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            minLength={12}
             className={styles.input}
           />
         </div>
