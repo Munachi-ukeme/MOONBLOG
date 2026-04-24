@@ -107,11 +107,14 @@
     font-size: 17px;
     margin-bottom: 10px;
     font-weight: 550;
+    color: #6B7280;
 }
 
 .blogbody{
     font-size: 17px;
     line-height: 25px;
+    color: #1A1A2E;
+    background-color: #ffffff;
 }
 
 .blogcategory{
@@ -126,6 +129,7 @@
     font-size: 35px;
     padding-top: 30px;
     margin-bottom: 20px;
+    color: #1A1A2E;
 }
 
 .readmore{
@@ -136,14 +140,14 @@
     margin-left: 60px;
     margin-top: 10px;
     font-size: 20px;
-    background-color: #d63b0c;
+    background-color: #1A1A2E;
     color: #ffffff;
     cursor: pointer;
 }
 
 .readmore:hover{
-    background-color: #bc370f;
-    color: #fffdfd;
+    background-color:#F5A623 ;
+    color: #ffffff;
 }
 
 
