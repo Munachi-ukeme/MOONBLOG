@@ -81,13 +81,13 @@ const Ulogin = () => {
         >
           Login
         </button>
-
+{/* 
         <p className={styles.forget}>
           Forgotten Password?
           <Link to="" className={styles.forgetpassword}>
             Reset
           </Link>
-        </p>
+        </p> */}
 
         <p className={styles.notamember}>
           Not a member?{" "}
