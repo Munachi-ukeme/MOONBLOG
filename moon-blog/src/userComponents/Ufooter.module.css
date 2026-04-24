@@ -31,6 +31,8 @@
     border-radius: 7px;
     border: none;
     margin-top: 10px;
+    border: #1A1A2E;
+    color: #6B7280;
 }
 
 .btn{
@@ -114,5 +116,5 @@
 }
 
 .bottomstrips{
-    color: #6B7280;
+    color: #1A1A2E;
 }
