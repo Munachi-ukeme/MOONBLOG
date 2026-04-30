@@ -53,8 +53,8 @@ router.post("/login", async (req, res) => {
     const user = await User.findOne({
       $or: [
         {email: req.body.email },
-        {userName: req.body.userName }
-
+        {userName: req.body.userName },
+        {password: req.body.password}
       ] 
     });
     if (!user) return res.status(404).json({ message: "User not found. Please sign up" });
