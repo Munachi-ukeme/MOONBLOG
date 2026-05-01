@@ -23,7 +23,7 @@ const Unavbar = ({ onCategoryChange }) => {
     // USER is logged in
     navLinks = (
       <>
-        <Link to="/userBlogs">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/userAbout">About</Link>
         <Link to="/userBlogs">Blogs</Link>
         {/* Category Dropdown */}

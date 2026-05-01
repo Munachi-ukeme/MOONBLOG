@@ -127,6 +127,7 @@ function Usignup() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
+            minLength="12"
             className={style.input}
           />
         </div>

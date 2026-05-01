@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("token"); // clears token after signout
     setIsAuthenticated(false);
+    navigate("/");
   };
 
   return (

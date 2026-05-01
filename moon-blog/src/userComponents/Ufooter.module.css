@@ -8,7 +8,7 @@
 .footercontainer{
     display: flex;
     flex-direction: column;
-    background-color: #FFFFFF ;
+    background-color:#0f172a;
     height: 60vh;
 }
 
@@ -20,7 +20,7 @@
 .news{
     font-size: 35px;
     margin-left: -110px;
-    color: #1A1A2E;
+    color: #ffffff;
 }
 
 .emailinput{
@@ -29,10 +29,18 @@
     height: 45px;
     width: 350px;
     border-radius: 7px;
-    border: none;
+    border: 1px solid #334155;
     margin-top: 10px;
-    border: 2px solid#1A1A2E;
-    color: #6B7280;
+    color: #ffffff;
+    background-color: #1e293b;
+}
+
+.emailinput::placeholder{
+    color: #64748b;
+}
+
+.emailinput:focus{
+    border-color: #3b82f6;
 }
 
 .btn{
@@ -41,14 +49,14 @@
     height: 43px;
     border: none;
     border-radius: 6px;
-    background-color: #1A1A2E;
-    color: #FFFFFF;
+    background-color: #3b82f6;
+    color: #ffffff;
     cursor: pointer;
     margin-left: 10px;
 }
 
 .btn:hover{
-    color: #F5A623;
+    color: #1a4b9a;
 }
 
 .footerrow{
@@ -64,20 +72,20 @@
 
 .Lname{
     font-size: 30px;
-    color: #1A1A2E;
+    color: #ffffff;
 }
 
 .link{
     font-size: 20px;
     text-decoration: none;
-    color: #F5A623;
+    color: #94a3b8;
     line-height: 25px;
     margin-left: 35px;
 }
 
 .link:hover{
     text-decoration: underline;
-    color: #E09112;
+    color: #3b82f6;
 }
 
 .linkcontainer {
@@ -87,11 +95,11 @@
 }
 
 .linkcontainer a{
-    color: #F5A623;
+    color: #94a3b8;
 }
 
 .linkcontainer a:hover{
-    color:  #E09112;
+    color:  #3b82f6;
 }
 
 .contacts p{
@@ -99,11 +107,11 @@
     font-size: 17px;
     font-weight: 500;
     cursor: pointer;
-    color: #F5A623;
+    color: #94a3b8;
 }
 
 .contacts p:hover{
-    color:  #E09112;
+    color:  #3b82f6;
 }
 
 
@@ -116,5 +124,5 @@
 }
 
 .bottomstrips{
-    color: #1A1A2E;
+    color: #94a3b8;
 }
