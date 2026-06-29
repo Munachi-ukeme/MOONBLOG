@@ -22,8 +22,8 @@ router.post("/signup", async (req, res) => {
     const newUser = new User({
       lastName: req.body.lastName,
       firstName: req.body.firstName,
-      email: req.body.email,
-      password: hashedPassword,
+      email: req.body.email.trim(),
+      password: hashedPassword.trim(),
       
       userName: req.body.userName,
 
@@ -54,7 +54,7 @@ router.post("/login", async (req, res) => {
       $or: [
         {email: req.body.email },
         {userName: req.body.userName },
-        {password: req.body.password}
+        
       ] 
     });
     if (!user) return res.status(404).json({ message: "User not found. Please sign up" });

@@ -9,7 +9,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-origin: "https://moonblogs.netlify.app" || "http://localhost:5173", // allow any route in frontend
+origin: "https://moonblog-beta.vercel.app" || "http://localhost:5173", // allow any route in frontend
 credentials: true}));
 app.use(express.json());
 
