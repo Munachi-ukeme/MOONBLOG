@@ -75,3 +75,24 @@
     background-color: #F5A623;
     color: #ffffff;
 }
+
+
+@media (max-width: 768px) {
+  .bloglist {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  .readmore {
+    width: 80%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .title {
+    font-size: 26px;
+    padding-top: 60px;
+  }
+}

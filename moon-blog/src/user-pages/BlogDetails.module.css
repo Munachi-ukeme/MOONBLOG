@@ -49,3 +49,20 @@
     text-align: center;
     
 }
+
+
+@media (max-width: 768px) {
+  .redirect,
+  .redirects {
+    width: 80%;
+    max-width: 190px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .blogBody {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}

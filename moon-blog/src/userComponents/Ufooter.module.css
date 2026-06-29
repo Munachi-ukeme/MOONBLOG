@@ -126,3 +126,31 @@
 .bottomstrips{
     color: #94a3b8;
 }
+
+@media (max-width: 768px) {
+  .footerrow {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .news {
+    margin-left: 0;
+    font-size: 24px;
+  }
+
+  .emailinput {
+    width: 80%;
+    max-width: 350px;
+  }
+
+  .link {
+    margin-left: 0;
+  }
+
+  .footercontainer {
+    height: auto;
+    padding: 40px 0;
+     padding-bottom: 90px;
+  }
+}

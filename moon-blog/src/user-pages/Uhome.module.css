@@ -154,3 +154,44 @@
 }
 
 
+@media (max-width: 768px) {
+  .heroContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .textcontainer {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .heroTitle {
+    font-size: 32px;
+  }
+
+  .heroSubtitle {
+    font-size: 18px;
+  }
+
+  .herobtn {
+    margin-left: 0;
+  }
+
+  .imagecontainer {
+    margin-right: 0;
+    justify-content: center;
+  }
+
+  .bloglist {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  .readmore {
+    width: 80%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}

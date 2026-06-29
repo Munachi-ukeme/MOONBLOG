@@ -114,3 +114,23 @@
     color: white;
 }
 
+@media (max-width: 768px) {
+  .form {
+    width: 90%;
+  }
+
+  .input {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .label {
+    margin-left: 0;
+  }
+
+  .signupbtn {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
