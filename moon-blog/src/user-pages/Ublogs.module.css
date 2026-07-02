@@ -81,6 +81,29 @@
   .bloglist {
     grid-template-columns: 1fr;
     padding: 12px;
+    gap: 15px;
+  }
+
+  .title {
+    font-size: 24px;
+    padding-top: 60px;
+  }
+
+  .blogcard {
+    padding: 15px;
+  }
+
+  .blogtitle {
+    font-size: 16px;
+  }
+
+  .blogauthor {
+    font-size: 13px;
+  }
+
+  .blogbody {
+    font-size: 14px;
+    line-height: 22px;
   }
 
   .readmore {
@@ -89,10 +112,6 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
-  }
-
-  .title {
-    font-size: 26px;
-    padding-top: 60px;
+    font-size: 15px;
   }
 }

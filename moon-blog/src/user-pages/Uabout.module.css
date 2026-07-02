@@ -82,7 +82,13 @@
     padding-bottom: 5px;
 }
 
+
 @media (max-width: 768px) {
+  .aboutcontainer {
+    padding-top: 90px;
+    padding-bottom: 60px;
+  }
+
   .aboutpage,
   .aboutstory,
   .aboutcontent,
@@ -91,12 +97,30 @@
     margin-left: 16px;
     margin-right: 16px;
     max-width: 100%;
+    font-size: 15px;
+    line-height: 24px;
+    margin-top: 20px;
   }
 
+  .aboutpage {
+    margin-top: 0;
+  }
+
+  .aboutpage h2,
   .aboutstory h2,
   .aboutcontent h2,
   .aboutdisclaimer h2,
   .aboutcommunity h2 {
     padding-left: 0px;
+    font-size: 19px;
+    padding-bottom: 8px;
+  }
+
+  .aboutcontent ul {
+    padding-left: 20px;
+  }
+
+  .aboutcontent li {
+    margin-bottom: 6px;
   }
 }
