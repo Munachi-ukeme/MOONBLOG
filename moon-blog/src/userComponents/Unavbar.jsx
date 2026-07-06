@@ -28,6 +28,7 @@ const Unavbar = ({ onCategoryChange }) => {
         <Link to="/userBlogs">Blogs</Link>
         {/* Category Dropdown */}
           <select onChange={(e) => onCategoryChange(e.target.value)}>
+            <option value="">All Categories</option>
             <option value="Tech">Tech</option>
             <option value="Business">Business</option>
             <option value="Education">Education</option>

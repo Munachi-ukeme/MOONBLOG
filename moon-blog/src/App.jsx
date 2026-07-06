@@ -45,7 +45,7 @@ function App() {
             element={
               <>
                 <Unavbar onCategoryChange={handleCategoryChange} />
-                <Uhome />
+                <Uhome category={selectedCategory}/>
                 <Ufooter />
               </>
             }

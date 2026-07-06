@@ -1,231 +1,227 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-}
-    
-.footercontainer{
+
+
+.footercontainer {
     display: flex;
     flex-direction: column;
-    background-color:#0f172a;
-    height: 60vh;
+    background-color: #0f172a;
+    padding: 60px 20px 20px 20px; 
 }
 
-.newsletter{
-    text-align: center;
-    margin-top: 20px;
+.contentscontainer {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-.news{
-    font-size: 35px;
-    margin-left: -110px;
+
+.newsletter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+
+.news {
+    font-size: 28px;
     color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
-.emailinput{
-    padding: 10px;
-    font-size: 18px;
-    height: 45px;
-    width: 350px;
-    border-radius: 7px;
+.emailinput {
+    padding: 10px 16px;
+    font-size: 16px;
+    height: 46px;
+    width: 320px;
+    border-radius: 6px;
     border: 1px solid #334155;
-    margin-top: 10px;
     color: #ffffff;
     background-color: #1e293b;
+    outline: none;
+    transition: border-color 0.2s;
 }
 
-.emailinput::placeholder{
+.emailinput::placeholder {
     color: #64748b;
 }
 
-.emailinput:focus{
+.emailinput:focus {
     border-color: #3b82f6;
 }
 
-.btn{
-    font-size: 20px;
-    width: 140px;
-    height: 43px;
+.btn {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    width: 130px;
+    height: 46px;
     border: none;
     border-radius: 6px;
     background-color: #3b82f6;
     color: #ffffff;
     cursor: pointer;
-    margin-left: 10px;
+    margin-left: 12px;
+    transition: background-color 0.2s;
 }
 
-.btn:hover{
-    color: #1a4b9a;
+.btn:hover {
+    background-color: #2563eb;
 }
 
-.footerrow{
+/* ---- Footer Links Rows ---- */
+.footerrow {
     display: flex;
-    justify-content: space-around;
-    margin-top: 50px;
+    justify-content: space-between;
+    gap: 40px;
 }
 
-.quicklinks{
+.quicklinks, .contacts, .socialMedia {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
-.Lname{
-    font-size: 30px;
+.Lname {
+    font-size: 18px;
     color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
-.link{
-    font-size: 20px;
+.link {
+    font-size: 15px;
     text-decoration: none;
     color: #94a3b8;
-    line-height: 25px;
-    margin-left: 35px;
+    line-height: 24px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.2s;
 }
 
-.link:hover{
-    text-decoration: underline;
+.link:hover {
     color: #3b82f6;
+}
+
+.contacts p {
+    font-size: 15px;
+    color: #94a3b8;
+    line-height: 22px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start; 
+    gap: 10px;
+}
+
+.contacts p svg {
+    margin-top: 4px; 
+    flex-shrink: 0;
 }
 
 .linkcontainer {
     display: flex;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 16px;
 }
 
-.linkcontainer a{
+.linkcontainer a {
     color: #94a3b8;
+    transition: color 0.2s;
 }
 
-.linkcontainer a:hover{
-    color:  #3b82f6;
+.linkcontainer a:hover {
+    color: #3b82f6;
 }
 
-.contacts p{
-    margin-top: 10px;
-    font-size: 17px;
-    font-weight: 500;
-    cursor: pointer;
-    color: #94a3b8;
-}
-
-.contacts p:hover{
-    color:  #3b82f6;
-}
-
-
-.bottomstrip{
+/* ---- Bottom Copyright Strip ---- */
+.bottomstrip {
+    border-top: 1px solid #1e293b;
+    margin-top: 50px;
+    padding-top: 24px;
+    display: flex;
     justify-content: center;
-    display: flex;
-    margin-top: 80px;
-    font-size: 18px;
-    cursor: pointer;
 }
 
-.bottomstrips{
-    color: #94a3b8;
-}
-
-@media (max-width: 768px) {
-
-  .footercontainer {
-    height: auto;
-    padding: 40px 0 90px;
-  }
-
-  /* ---- Newsletter ---- */
-  .newsletter {
-    padding: 0 20px;
-  }
-
-  .news {
-    margin-left: 0;
-    font-size: 22px;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .emailinput {
-    width: 100%;
-    max-width: 320px;
-    font-size: 15px;
-    height: 42px;
-    margin-top: 0;
-  }
-
-  .btn {
-    width: 100%;
-    max-width: 320px;
-    margin-left: 0;
-    font-size: 16px;
-    height: 42px;
-  }
-
-  /* ---- Footer row ---- */
-  .footerrow {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    margin-top: 35px;
-    text-align: center;
-  }
-
-  .quicklinks,
-  .contacts {
-    align-items: center;
-  }
-
-  .Lname {
-    font-size: 20px;
-  }
-
-  .link {
-    margin-left: 0;
-    font-size: 15px;
-    line-height: 22px;
-  }
-
-  .contacts p {
-    font-size: 13px;
-    margin-top: 8px;
+.bottomstrips {
+    color: #64748b;
+    font-size: 14px;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 6px;
-    text-align: left;
-    max-width: 280px;
-  }
+}
 
-  .linkcontainer svg {
-    width: 20px;
-    height: 20px;
-  }
 
-  /* ---- Bottom strip ---- */
-  .bottomstrip {
-    margin-top: 40px;
-    padding: 0 20px;
-    text-align: center;
-  }
+   
+@media (max-width: 768px) {
+    .footercontainer {
+        padding: 40px 24px 30px 24px;
+    }
 
-  .bottomstrips {
-    font-size: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    line-height: 20px;
-  }
+    /* Stack newsletter inputs beautifully */
+    .newsletter {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
 
-  .bottomstrips svg {
-    width: 14px;
-    height: 14px;
-  }
+    .news {
+        font-size: 20px;
+    }
+
+    /* Wrap form elements neatly on small screens */
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .emailinput {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    /* Modern clean left-aligned stacked layout instead of ugly center text forced lines */
+    .footerrow {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .Lname {
+        font-size: 16px;
+        margin-bottom: 14px;
+    }
+
+    .link, .contacts p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    /* Let the text flow naturally without looking squeezed */
+    .contacts p {
+        max-width: 100%;
+    }
+
+    /* Copyright formatting tweaks for text-wrapping on small devices */
+    .bottomstrip {
+        margin-top: 40px;
+        padding-top: 20px;
+    }
+
+    .bottomstrips {
+        font-size: 12px;
+        flex-wrap: wrap;
+        justify-content: left; 
+        line-height: 20px;
+    }
 }
