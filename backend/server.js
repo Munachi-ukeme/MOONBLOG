@@ -1,3 +1,9 @@
+
+const dns = require('dns');
+dns.setServers(['8.8.8.8', '8.8.4.4']); //  Forces Node.js to use Google DNS directly
+
+
+
 require("dotenv").config(); //dotenv is a Node.js package. It helps keep sensitive information (like database URLs, API keys, JWT secrets) outside your code.
 
 const express = require("express");
@@ -9,7 +15,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-origin: "https://moonblog-beta.vercel.app" || "http://localhost:5173", // allow any route in frontend
+origin: "https://moonblog-beta.vercel.app", 
 credentials: true}));
 app.use(express.json());
 
