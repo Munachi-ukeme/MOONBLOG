@@ -79,12 +79,12 @@ select{
   }
 
   .webName {
-    position: absolute;
+    position: relative;
     top: 12px;
     left: 16px;
     font-size: 1.6rem;
     z-index: 101;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
 
   .links {
