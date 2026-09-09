@@ -1,227 +1,194 @@
-
-
-.footercontainer {
-    display: flex;
-    flex-direction: column;
-    background-color: #0f172a;
-    padding: 60px 20px 20px 20px; 
+.footerContainer {
+  background-color: #121212; /* Elevation slate background matching navbar */
+  border-top: 1px solid #1E1E24;
+  color: #E0E0E0;
+  padding: 4rem 2rem 2rem 2rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  margin-top: 4rem;
 }
 
-.contentscontainer {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
+.contentsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* --- Newsletter Styling --- */
+.newsletterForm {
+  margin-bottom: 4rem;
+  border-bottom: 1px solid #1E1E24;
+  padding-bottom: 3rem;
+}
 
 .newsletter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #1e293b;
-    padding-bottom: 40px;
-    margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
 }
 
-.news {
-    font-size: 28px;
-    color: #ffffff;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+.newsTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.1em;
+  margin: 0;
 }
 
-.emailinput {
-    padding: 10px 16px;
-    font-size: 16px;
-    height: 46px;
-    width: 320px;
-    border-radius: 6px;
-    border: 1px solid #334155;
-    color: #ffffff;
-    background-color: #1e293b;
-    outline: none;
-    transition: border-color 0.2s;
+.inputGroup {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #333339;
 }
 
-.emailinput::placeholder {
-    color: #64748b;
+.emailInput {
+  flex: 1;
+  background-color: #1E1E24;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  color: #FFFFFF;
+  font-size: 1rem;
+  outline: none;
 }
 
-.emailinput:focus {
-    border-color: #3b82f6;
+.emailInput::placeholder {
+  color: #6B7280;
 }
 
-.btn {
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    width: 130px;
-    height: 46px;
-    border: none;
-    border-radius: 6px;
-    background-color: #3b82f6;
-    color: #ffffff;
-    cursor: pointer;
-    margin-left: 12px;
-    transition: background-color 0.2s;
+.subscribeBtn {
+  background-color: #8B5CF6; /* Neon Purple */
+  color: #FFFFFF;
+  border: none;
+  padding: 0 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.btn:hover {
-    background-color: #2563eb;
+.subscribeBtn:hover {
+  background-color: #7C3AED;
 }
 
-/* ---- Footer Links Rows ---- */
-.footerrow {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
+/* --- Columns Layout Grid --- */
+.footerRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
 }
 
-.quicklinks, .contacts, .socialMedia {
-    display: flex;
+.footerColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.columnHeading {
+  font-size: 1.2rem;
+  color: #FFFFFF;
+  margin: 0;
+  font-weight: 600;
+  position: relative;
+}
+
+/* Quick Links Nav List */
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.linkList a, .fakeLink {
+  color: #9CA3AF;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.linkList a:hover {
+  color: #8B5CF6; /* Purple highlight on link hover */
+}
+
+.fakeLink {
+  cursor: pointer;
+}
+
+/* Contact Info Items */
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: #9CA3AF;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.icon {
+  color: #8B5CF6; /* Icons pop in purple */
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+/* Social Icon Row */
+.socialLinks {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.socialLinks a {
+  color: #9CA3AF;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.socialLinks a:hover {
+  color: #8B5CF6;
+  transform: translateY(-2px);
+}
+
+/* --- Copyright Bottom Strip --- */
+.bottomStrip {
+  border-top: 1px solid #1E1E24;
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.copyrightText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #6B7280;
+  flex-wrap: wrap;
+}
+
+.copyIcon {
+  flex-shrink: 0;
+}
+
+/* --- Responsive Layout Breaks --- */
+@media (max-width: 600px) {
+  .footerContainer {
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
+  }
+
+  .inputGroup {
     flex-direction: column;
-    flex: 1;
-}
+    border: none;
+    gap: 0.75rem;
+    border-radius: 0;
+  }
 
-.Lname {
-    font-size: 18px;
-    color: #ffffff;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
+  .emailInput, .subscribeBtn {
+    border-radius: 6px;
+    padding: 0.8rem;
+    width: 100%;
+  }
 
-.link {
-    font-size: 15px;
-    text-decoration: none;
-    color: #94a3b8;
-    line-height: 24px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: color 0.2s;
-}
-
-.link:hover {
-    color: #3b82f6;
-}
-
-.contacts p {
-    font-size: 15px;
-    color: #94a3b8;
-    line-height: 22px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: flex-start; 
-    gap: 10px;
-}
-
-.contacts p svg {
-    margin-top: 4px; 
-    flex-shrink: 0;
-}
-
-.linkcontainer {
-    display: flex;
-    gap: 16px;
-}
-
-.linkcontainer a {
-    color: #94a3b8;
-    transition: color 0.2s;
-}
-
-.linkcontainer a:hover {
-    color: #3b82f6;
-}
-
-/* ---- Bottom Copyright Strip ---- */
-.bottomstrip {
-    border-top: 1px solid #1e293b;
-    margin-top: 50px;
-    padding-top: 24px;
-    display: flex;
-    justify-content: center;
-}
-
-.bottomstrips {
-    color: #64748b;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-
-   
-@media (max-width: 768px) {
-    .footercontainer {
-        padding: 40px 24px 30px 24px;
-    }
-
-    /* Stack newsletter inputs beautifully */
-    .newsletter {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        padding-bottom: 30px;
-        margin-bottom: 30px;
-    }
-
-    .news {
-        font-size: 20px;
-    }
-
-    /* Wrap form elements neatly on small screens */
-    form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-    }
-
-    .emailinput {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .btn {
-        width: 100%;
-        max-width: 100%;
-        margin-left: 0;
-    }
-
-    /* Modern clean left-aligned stacked layout instead of ugly center text forced lines */
-    .footerrow {
-        flex-direction: column;
-        gap: 32px;
-    }
-
-    .Lname {
-        font-size: 16px;
-        margin-bottom: 14px;
-    }
-
-    .link, .contacts p {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-    /* Let the text flow naturally without looking squeezed */
-    .contacts p {
-        max-width: 100%;
-    }
-
-    /* Copyright formatting tweaks for text-wrapping on small devices */
-    .bottomstrip {
-        margin-top: 40px;
-        padding-top: 20px;
-    }
-
-    .bottomstrips {
-        font-size: 12px;
-        flex-wrap: wrap;
-        justify-content: left; 
-        line-height: 20px;
-    }
+  .footerRow {
+    gap: 2rem;
+  }
 }

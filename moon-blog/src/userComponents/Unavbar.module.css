@@ -1,114 +1,102 @@
-*{
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-    font-family: sans-serif;
-    text-decoration: none;
+/* --- Modern Night Theme Variables --- */
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 1rem 2rem;
+  background-color: #121212; /* Deep Charcoal/Off-Black */
+  border-bottom: 1px solid #1E1E24; /* Subtle layout divider */
 }
 
-.navContainer{
-    justify-content: space-around;
-    display: flex;
-    align-items: center;
-    padding-top: 1.3rem;
-    padding-bottom: 1.3rem;
-    background-color: #f8fafc;
-    margin: 0px;
-    height: 100px;
-    border-bottom: 1px solid #e2e8f0;
+.webName {
+  color: #8B5CF6; /* Neon Purple Brand Accent */
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
 }
 
-.webName{
-    color: #1e293b;
-    font-size: 2.5rem;
-}   
-
-.links{
-    display: flex;
-    gap: 25px;
-    font-size: 1.3rem;
-    text-align: center;
+.links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
-.links a{
-    color: #1e293b;
-    font-weight: 530;
-}
-.links a:hover{
-    color: #3b82f6;
-}
-
-
-select{
-    height: 30px;
-    width: 140px;
-    border-radius: 20px;
-    border: none;
-    font-size: 14px;
-    padding: 3px;
+.links a {
+  color: #E0E0E0; /* Soft readable white */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-.logoutBtn{
-    width: 80px;
-    height: 30px;
-    border-radius: 20px;
-    border: none;
-    font-size: 17px;
-    cursor: pointer;
-    color:  #1e293b;
-    
+/* Hovering turns links purple */
+.links a:hover {
+  color: #8B5CF6; 
 }
 
-.logoutBtn:hover{
-    color: #3b82f6;
+/* Styled Category Selector */
+.categorySelect {
+  background-color: #1E1E24;
+  color: #E0E0E0;
+  border: 1px solid #333;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
 }
 
+/* --- Mobile Hamburger Setup --- */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
 
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #E0E0E0; /* Menu lines match text */
+  transition: 0.3s ease;
+}
+
+/* --- Responsive Breakpoint --- */
 @media (max-width: 768px) {
-  .navContainer {
-    position: fixed;
-    bottom: 0;
+  .hamburger {
+    display: flex;
+  }
+
+  /* Morph into an X when menu is opened */
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: #8B5CF6;
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: #8B5CF6;
+  }
+
+  /* The hidden drawer container on mobile devices */
+  .links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
     left: 0;
     width: 100%;
-    height: 65px;
-    padding: 0;
-    justify-content: space-around;
-    border-bottom: none;
-    border-top: 1px solid #e2e8f0;
+    background-color: #121212;
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+    border-bottom: 1px solid #1E1E24;
     z-index: 100;
   }
 
-  .webName {
-    position: relative;
-    top: 12px;
-    left: 16px;
-    font-size: 1.6rem;
-    z-index: 101;
-    margin-bottom: 25px;
-  }
-
-  .links {
-    width: 100%;
-    justify-content: space-around;
-    gap: 0;
-    font-size: 0.85rem;
-  }
-
-  .links a {
+  /* Show mobile link block when clicked open */
+  .links.navOpen {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  select {
-    height: 36px;
-    width: auto;
-    font-size: 12px;
-  }
-
-  .logoutBtn {
-    width: auto;
-    height: 36px;
-    font-size: 14px;
   }
 }

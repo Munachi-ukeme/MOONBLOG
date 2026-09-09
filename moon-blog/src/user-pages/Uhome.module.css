@@ -1,237 +1,212 @@
-*{
-    padding: 0;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: sans-serif;
+.pageWrapper {
+  background-color: #0b0b0d; /* Universal deep abyss canvas */
+  color: #E0E0E0;
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
 }
 
+/* --- Hero Layout Configuration --- */
 .hero {
+  background-color: #121212; /* Elevation background matching navbar */
+  padding: 5rem 2rem;
+  border-bottom: 1px solid #1E1E24;
+}
+
+.heroContent {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  padding: 60px 20px;
-  border-top-right-radius: 35px;
-  border-top-left-radius: 35px;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
-.heroContent{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    width: 100%;
-}
-
-.textcontainer{
-    flex: 1;
-    padding-right: 40px;
+.textContainer {
+  flex: 1;
 }
 
 .heroTitle {
-  font-size: 55px;
-  margin-bottom: 20px;
-  font-weight: 550;
-  color: #0f172a;
+  font-size: 3.5rem;
+  color: #FFFFFF;
+  margin: 0 0 1rem 0;
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 .heroSubtitle {
-  font-size: 25px;
-  margin-bottom: 30px;
-  color: #0f172a;
-  font-weight: 500;
+  font-size: 1.25rem;
+  color: #9CA3AF;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
-.herobtn {
-  background-color: #1e293b;
-  color: #ffffff;
+.heroBtn {
+  background-color: #8B5CF6; /* Bright Neon Purple Accent */
+  color: #FFFFFF;
   border: none;
-  border-radius: 6px;
-  font-size: 20px;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 130px;
-  height: 50px;
-  margin-left: 200px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
 }
 
-.herobtn:hover {
-  background-color: #192537; 
+.heroBtn:hover {
+  background-color: #7C3AED;
+  transform: translateY(-2px);
 }
 
-.imagecontainer {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    margin-right: -110px;
+/* --- The Image Masking Frame Solution --- */
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
+
+.imageFrame {
+  width: 380px;
+  height: 380px;
+  border-radius: 50%; /* Trims the square edges into a smooth circle */
+  overflow: hidden;
+  border: 4px solid #8B5CF6; /* High-tech neon bounding wall */
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.25); /* Ambient neon backing glow */
+  background-color: #FFFFFF; /* Preserves contrast under the white backdrop */
+}
+
 .image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keeps image proportions clean without squishing */
 }
 
-
-.cardcontainer{
-    background-color: #f1f5f9;
+/* --- Latest Feed Section Layouts --- */
+.cardContainer {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
 }
 
-.bloglist{
-   display: grid;
-   grid-template-columns: repeat(auto-fill, minmax(400px, 3fr));
-   padding: 20px;
-   gap: 20px;
+.title {
+  font-size: 2rem;
+  color: #FFFFFF;
+  margin-bottom: 2.5rem;
+  border-left: 4px solid #8B5CF6;
+  padding-left: 0.75rem;
 }
 
-.blogcard{
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-    cursor: pointer;
+.blogList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
 }
 
-.blogcard:hover{
-    transform: translateY(-5px);
+.blogCard {
+  background-color: #121212;
+  border: 1px solid #1E1E24;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
 }
 
-.blogtitle{
-    text-align: center;
-    font-size: 17px;
-    margin-bottom: 10px;
-    color: #0f172a;
-    font-weight: 600;
+.blogCard:hover {
+  transform: translateY(-4px);
+  border-color: #8B5CF6;
 }
 
-.blogauthor{
-    font-size: 17px;
-    margin-bottom: 10px;
-    font-weight: 550;
-    color: #94a3b8;
+.blogTitle {
+  font-size: 1.4rem;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
 }
 
-.blogbody{
-    font-size: 17px;
-    line-height: 25px;
-    color: #475569;
-    font-weight: 400;
+.blogCategory {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #8B5CF6;
+  background-color: rgba(139, 92, 246, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
 }
 
-.blogcategory{
-     font-size: 14px;
-    margin-bottom: 10px;
-    font-weight: 400;
-    color: #94a3b8;
+.blogBody {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #D1D5DB;
 }
 
-
-.title{
-    text-align: center;
-    font-size: 35px;
-    padding-top: 30px;
-    margin-bottom: 20px;
-    color: #0f172a;
+.blogAuthor {
+  font-size: 0.85rem;
+  color: #9CA3AF;
+  border-top: 1px solid #1E1E24;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.readmore{
-    width: 300px;
-    height: 40px;
-    border-radius: 6px;
-    border: none;
-    margin-left: 60px;
-    margin-top: 10px;
-    font-size: 20px;
-    background-color: #1e293b;
-    color: #ffffff;
-    cursor: pointer;
+.readMore {
+  background-color: #1E1E24;
+  color: #E0E0E0;
+  border: 1px solid #333339;
+  padding: 0.6rem 1.2rem;
+  width: 100%;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.readmore:hover{
-    background-color: #151f2e ;
-    color: #ffffff;
+.readMore:hover {
+  background-color: #8B5CF6;
+  color: #FFFFFF;
+  border-color: #8B5CF6;
 }
 
-@media (max-width: 768px) {
-  .hero {
-    padding: 40px 16px;
-  }
+.emptyMessage {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #6B7280;
+  padding: 3rem;
+  font-style: italic;
+}
 
+.errorMessage {
+  color: #EF4444;
+  text-align: center;
+  font-weight: bold;
+  padding: 1rem;
+  background-color: rgba(239, 68, 68, 0.1);
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+/* --- Responsive Viewport Adaptation Layers --- */
+@media (max-width: 900px) {
   .heroContent {
-    flex-direction: column;
+    flex-direction: column-reverse; /* Stacks image above header copy on small viewports */
     text-align: center;
-  }
-
-  .textcontainer {
-    padding-right: 0;
-    margin-bottom: 30px;
+    gap: 2rem;
   }
 
   .heroTitle {
-    font-size: 28px;
-    margin-bottom: 12px;
+    font-size: 2.5rem;
   }
 
-  .heroSubtitle {
-    font-size: 16px;
-    margin-bottom: 20px;
+  .imageFrame {
+    width: 280px;
+    height: 280px; /* Scales display bounds evenly down on mobile touch panels */
   }
+}
 
-  .herobtn {
-    margin-left: 0;
-    width: 120px;
-    height: 44px;
-    font-size: 16px;
-  }
-
-  .imagecontainer {
-    margin-right: 0;
-    justify-content: center;
-  }
-
-  .image {
-    max-width: 80%;
-  }
-
-  .title {
-    font-size: 24px;
-    padding-top: 40px;
-  }
-
-  .bloglist {
+@media (max-width: 480px) {
+  .blogList {
     grid-template-columns: 1fr;
-    padding: 12px;
-    gap: 15px;
-  }
-
-  .blogcard {
-    padding: 15px;
-  }
-
-  .blogtitle {
-    font-size: 16px;
-  }
-
-  .blogauthor {
-    font-size: 13px;
-  }
-
-  .blogcategory {
-    font-size: 13px;
-  }
-
-  .blogbody {
-    font-size: 14px;
-    line-height: 22px;
-  }
-
-  .readmore {
-    width: 80%;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    font-size: 15px;
   }
 }

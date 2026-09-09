@@ -1,88 +1,98 @@
-.redirect{
-    width: 190px;
-    height: 40px;
-    border-radius: 6px;
-    border: none;
-    margin-left: 60px;
-    margin-top: 10px;
-    font-size: 20px;
-    background-color: #d63b0c;
-    color: #ffffff;
-    cursor: pointer;
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-.redirects{
-    width: 190px;
-    height: 40px;
-    border-radius: 6px;
-    border: none;
-    margin-left: 60px;
-    margin-top: 10px;
-    font-size: 20px;
-    background-color: #d63b0c;
-    color: #ffffff;
-    cursor: pointer;
-    margin-top: 30px;
-    margin-bottom: 20px;
+/* Core article window frame */
+.blogContainer {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2.5rem 2rem;
+  background-color: #121212; /* Matches navbar dark canvas */
+  color: #E0E0E0; /* Soft, easy-to-read off-white */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.blogBody{
-    font-size: 15px;
-    max-width: 90rem;
-    line-height: 30px;
-    margin-left: 35px;
-    margin-bottom: 35px;
-   
+.blogTitle {
+  font-size: 2.5rem;
+  color: #FFFFFF; /* Pure structural white for headers */
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
-.blogTitle{
-    text-align: center;
-    margin-top: 30px;
+.blogCategory {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #8B5CF6; /* Neon Purple highlights */
+  background-color: rgba(139, 92, 246, 0.1); /* Subtle dark purple accent bubble */
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
 }
 
-.blogCategory{
-    text-align: center;
-    margin-bottom: 20px;
-}
-.blogAuthor{
-    text-align: center;
-    
+.blogBody {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #D1D5DB; /* Clean contrasting silver paragraph hue */
+  white-space: pre-wrap; /* Keeps user linebreaks intact from inputs */
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.011em;
 }
 
-@media (max-width: 768px) {
+.blogAuthor {
+  font-size: 0.95rem;
+  color: #9CA3AF; /* Dimmed secondary metadata */
+  border-top: 1px solid #1E1E24;
+  padding-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Functional Navigation Grid Hooks */
+.backButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap; /* Wraps clean layout blocks on smaller viewports */
+}
+
+.redirect {
+  background-color: #1E1E24; /* Elevated slate frame */
+  color: #E0E0E0;
+  border: 1px solid #333339;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.redirect:hover {
+  background-color: #8B5CF6; /* Transitions button structure into vibrant brand colors on click hover */
+  color: #FFFFFF;
+  border-color: #8B5CF6;
+  transform: translateY(-1px);
+}
+
+/* Helper handling text displays for errors / loaders */
+.statusText {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #9CA3AF;
+  padding: 3rem 0;
+}
+
+/* Responsive adjustment layer targeting handheld viewports */
+@media (max-width: 600px) {
+  .blogContainer {
+    margin: 1rem;
+    padding: 1.5rem 1rem;
+  }
+  
   .blogTitle {
-    font-size: 22px;
-    margin-top: 20px;
-    padding: 0 16px;
+    font-size: 1.85rem;
   }
 
-  .blogCategory {
-    font-size: 14px;
-    margin-bottom: 15px;
+  .backButtons {
+    flex-direction: column; /* Stacks button alignments evenly inside tiny grid lanes */
   }
 
-  .blogBody {
-    margin-left: 16px;
-    margin-right: 16px;
-    max-width: 100%;
-    font-size: 14px;
-    line-height: 24px;
-  }
-
-  .blogAuthor {
-    font-size: 13px;
-    padding: 0 16px;
-  }
-
-  .redirect,
-  .redirects {
-    width: 80%;
-    max-width: 190px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    font-size: 15px;
-    height: 42px;
+  .backButtons a, 
+  .redirect {
+    width: 100%;
   }
 }

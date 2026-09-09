@@ -1,126 +1,98 @@
-*{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: sans-serif;
+/* Container bounds */
+.aboutContainer {
+  max-width: 850px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  color: #E0E0E0; /* Soft readable white */
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-.aboutcontainer{
-    background-color: #f0f0f0;
-    padding-top: 110px;
-    padding-bottom: 80px;
-    color: #000000;
+/* Base layouts for text cards */
+.aboutSection {
+  background-color: #121212; /* Matches navbar dark canvas */
+  padding: 2.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.aboutpage{
-    font-size: 20px;
-    max-width: 400px;
-    margin-left: 35rem;
-    font-weight: 540px;
-    line-height: 30px;
+/* Layout section headers */
+.aboutSection h2 {
+  font-size: 1.8rem;
+  color: #FFFFFF; /* Pure structural white */
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
-.aboutpage p{
-    padding-top: 10px;
+/* Global main section header title override hook */
+.name {
+  color: #8B5CF6 !important; /* Neon Purple Brand Accent */
+  font-size: 2.4rem !important;
+  font-weight: 700;
 }
 
-.aboutstory{
-    font-size: 20px;
-    max-width: 500px;
-    margin-left: 35rem;
-    font-weight: 540px;
-    line-height: 30px;
-    margin-top: 30px;
+/* Paragraph styling */
+.aboutSection p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #D1D5DB; /* Clean contrasting silver hue */
+  margin-bottom: 1rem;
 }
 
-.aboutstory h2{
-    padding-left: 100px;
-    padding-bottom: 5px;
-}
-.aboutcontent{
-    font-size: 20px;
-    max-width: 500px;
-    margin-left: 35rem;
-    font-weight: 540px;
-    line-height: 30px;
-    margin-top: 30px;
+.aboutSection p:last-child {
+  margin-bottom: 0;
 }
 
-.aboutcontent h2{
-    padding-left: 80px;
-    padding-bottom: 5px;
-    padding-top: 20px;
+/* Feature Checklists */
+.aboutList {
+  padding-left: 1.2rem;
+  margin: 0;
 }
 
-.aboutdisclaimer{
-    font-size: 20px;
-    max-width: 500px;
-    margin-left: 35rem;
-    font-weight: 540px;
-    line-height: 30px;
-    margin-top: 30px;
+.aboutList li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #D1D5DB;
+  margin-bottom: 0.8rem;
+  position: relative;
+  list-style: none;
 }
 
-.aboutdisclaimer h2{
-    padding-left: 100px;
-    padding-top: 20px;
-    padding-bottom: 5px;
+/* Custom Bullet Points */
+.aboutList li::before {
+  content: "•";
+  color: #8B5CF6; /* Purple bullet dots */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
 
-.aboutcommunity{
-    font-size: 20px;
-    max-width: 500px;
-    margin-left: 35rem;
-    font-weight: 540px;
-    line-height: 30px;
-    margin-top: 30px;
+.aboutList li:last-child {
+  margin-bottom: 0;
 }
 
-.aboutcommunity h2{
-    padding-left: 80px;
-    padding-top: 20px;
-    padding-bottom: 5px;
+/* Distinct Warning Frame for Disclaimers */
+.disclaimer {
+  border-left: 4px solid #8B5CF6; /* Purple warning stripe */
+  background-color: #1E1E24; /* Slightly lighter container depth indicator */
 }
 
+.disclaimer h2 {
+  color: #8B5CF6;
+}
 
-@media (max-width: 768px) {
-  .aboutcontainer {
-    padding-top: 90px;
-    padding-bottom: 60px;
+/* Responsive adjustment layer targeting handheld screens */
+@media (max-width: 600px) {
+  .aboutContainer {
+    margin: 1rem auto;
+  }
+  
+  .aboutSection {
+    padding: 1.5rem;
   }
 
-  .aboutpage,
-  .aboutstory,
-  .aboutcontent,
-  .aboutdisclaimer,
-  .aboutcommunity {
-    margin-left: 16px;
-    margin-right: 16px;
-    max-width: 100%;
-    font-size: 15px;
-    line-height: 24px;
-    margin-top: 20px;
-  }
-
-  .aboutpage {
-    margin-top: 0;
-  }
-
-  .aboutpage h2,
-  .aboutstory h2,
-  .aboutcontent h2,
-  .aboutdisclaimer h2,
-  .aboutcommunity h2 {
-    padding-left: 0px;
-    font-size: 19px;
-    padding-bottom: 8px;
-  }
-
-  .aboutcontent ul {
-    padding-left: 20px;
-  }
-
-  .aboutcontent li {
-    margin-bottom: 6px;
+  .name {
+    font-size: 1.85rem !important;
   }
 }

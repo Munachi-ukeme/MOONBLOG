@@ -1,67 +1,96 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaGithub, FaLinkedin, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaRegCopyright } from "react-icons/fa";
 import style from "./Ufooter.module.css";
 
 const Ufooter = () => {
-    const [newsLetter, setNewsLetter] = useState("");
+  const [newsLetter, setNewsLetter] = useState("");
 
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        console.log("Subscribe with:", newsLetter);
-        setNewsLetter("");
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!newsLetter.trim()) return;
+    console.log("Subscribe with:", newsLetter);
+    setNewsLetter("");
+  };
+
   return (
-    <div className={style.footercontainer}>
-        <div className={style.contentscontainer}>
+    <footer className={style.footerContainer}>
+      <div className={style.contentsContainer}>
+        
+        {/* Newsletter Section */}
+        <form onSubmit={handleSubmit} className={style.newsletterForm}>
+          <div className={style.newsletter}>
+            <h2 className={style.newsTitle}>NEWSLETTER</h2>
+            <div className={style.inputGroup}>
+              <input
+                value={newsLetter}
+                onChange={(e) => setNewsLetter(e.target.value)}
+                type="email"
+                placeholder="Your email address"
+                className={style.emailInput}
+                required
+              />
+              <button type="submit" className={style.subscribeBtn}>SUBSCRIBE</button>
+            </div>
+          </div>
+        </form>
 
-            <form onSubmit={handleSubmit}>
-                <div className={style.newsletter}>
-        <h2 className={style.news}>NEWS LETTER</h2>
-        <input
-        value={newsLetter}
-        onChange={(e) => setNewsLetter(e.target.value)}
-        type="email"
-        placeholder='Your email address'
-        className={style.emailinput}
-        />
-        <button type='submit' className={style.btn}>SUBSCRIBE</button>
-      </div>
-            </form>
+        {/* Informational Columns Grid */}
+        <div className={style.footerRow}>
+          <div className={style.footerColumn}>
+            <h3 className={style.columnHeading}>Quick Links</h3>
+            <nav className={style.linkList}>
+              <Link to="/">Home</Link>
+              <Link to="/userAbout">About</Link>
+              <Link to="/userBlogs">Blogs</Link>
+              <span className={style.fakeLink}>FAQs</span>
+            </nav>
+          </div>
 
-      <div className={style.footerrow}>
-      <div className={style.quicklinks}>
-        <h2 className={style.Lname}>Quick Links</h2>
-        <Link to="/" className={style.link}>Home</Link>
-        <Link to="/userAbout" className={style.link}>About</Link>
-        <Link to="/userBlogs" className={style.link}>Blogs</Link>
-        <span className={style.link}>FAQs</span>
-      </div>
+          <div className={style.footerColumn}>
+            <h3 className={style.columnHeading}>Contact Info</h3>
+            <div className={style.contactItem}>
+              <FaEnvelope className={style.icon} /> <span>favourukeme8@gmail.com</span>
+            </div>
+            <div className={style.contactItem}>
+              <FaPhoneAlt className={style.icon} /> <span>09132227203</span>
+            </div>
+            <div className={style.contactItem}>
+              <FaMapMarkerAlt className={style.icon} /> <span>2, Alhaji Kalejaiye St, Shomolu, Lagos.</span>
+            </div>
+          </div>
 
-      <div className={style.contacts}>
-        <h2 className={style.Lname}>Contact Info</h2>
-        <p className={style.link}> <FaEnvelope  /> {" "} favourukeme8@gmail.com</p> 
-        <p className={style.link}> <FaPhoneAlt  />{" "}09132227203</p>
-        <p className={style.link}> < FaMapMarkerAlt /> {" "} 2, Alhaji Kalejaiye Street, Shomolu, Lagos State.</p>
-      </div>
-
-      <div className={style.socialMedia}>
-        <h2 className={style.Lname}>Follow Us</h2>
-        <div className={style.linkcontainer}>
-        <Link to="https://facebook.com/profile.php?id=61577318323288" target="_blank" rel="noopener noreferrer" className={style.link}> <FaFacebook size={24} /> </Link> 
-        <Link to="https://x.com/MoonCodes2006" target="_blank" rel="noopener noreferrer" className={style.link}> <FaTwitter size={24} /> </Link> 
-        <Link to="https://www.linkedin.com/in/munachi-ukeme-2389a8365" target="_blank" rel="noopener noreferrer" className={style.link}> <FaLinkedin size={24} /> </Link> 
-        <Link to="https://github.com/Munachi-ukeme" target="_blank" rel="noopener noreferrer" className={style.link}> <FaGithub size={24} /> </Link>
+          <div className={style.footerColumn}>
+            <h3 className={style.columnHeading}>Follow Us</h3>
+            {/* Standard anchor tags optimized for secure external platform redirects */}
+            <div className={style.socialLinks}>
+              <a href="https://facebook.com/profile.php?id=61577318323288" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <FaFacebook size={22} />
+              </a>
+              <a href="https://x.com/MoonCodes2006" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <FaTwitter size={22} />
+              </a>
+              <a href="https://www.linkedin.com/in/munachi-ukeme-2389a8365" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <FaLinkedin size={22} />
+              </a>
+              <a href="https://github.com/Munachi-ukeme" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <FaGithub size={22} />
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
 
-      <div className={style.bottomstrip}>
-        <p className={style.bottomstrips}> <FaRegCopyright size={18}/> 2026 MoonBlog |All Rights Reserved | Privacy Policy | Terms of Use</p>
-      </div>
-      </div>
-    </div>
-  )
-}
+        {/* Copyright Bar */}
+        <div className={style.bottomStrip}>
+          <div className={style.copyrightText}>
+            <FaRegCopyright size={14} className={style.copyIcon} />
+            <span>2026 MoonBlog | All Rights Reserved | Privacy Policy | Terms of Use</span>
+          </div>
+        </div>
 
-export default Ufooter
+      </div>
+    </footer>
+  );
+};
+
+export default Ufooter;
