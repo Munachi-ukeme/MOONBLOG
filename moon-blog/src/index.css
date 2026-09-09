@@ -6,12 +6,13 @@
 }
 
 /* --- Global Screen Framework Setup --- */
-body {
-  background-color: #0b0b0d; /* Universal deep abyss canvas backdrop */
-  color: #E0E0E0; /* Soft white foundational default text */
+body, html {
+  background-color: #0b0b0d;
+  color: #E0E0E0; 
+  width: 100%;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   min-height: 100vh;
-  overflow-x: hidden; /* Prevents stray elements from causing annoying horizontal page shaking */
+  overflow-x: hidden; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
