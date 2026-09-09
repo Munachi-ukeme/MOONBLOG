@@ -1,85 +1,172 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-    
+/* Universal Background Outer Page Wrapper */
+.pageWrapper {
+  background-color: #0b0b0d; /* Universal deep abyss background canvas */
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-.container{
-    background-color: #f5f5f5;
-    height: 100vh;
+/* Core Form Card Box Frame */
+.container {
+  background-color: #121212; /* Deep Charcoal elevation frame */
+  width: 100%;
+  max-width: 850px; /* Locks input lines elegantly */
+  padding: 3rem;
+  border-radius: 12px;
+  border: 1px solid #1E1E24;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-.containername{
-    padding-left: 300px;
-    padding-top: 50px;
-    font-size: 35px;
-    font-weight: 550;
-    margin-bottom: 30px;
+.containerName {
+  color: #FFFFFF;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
-.formbag{
-    margin-left: 300px;
-    display: flex;
-    flex-direction: column;
+/* Neon accent line underneath the form header block */
+.containerName::after {
+  content: "";
+  display: block;
+  width: 45px;
+  height: 4px;
+  background-color: #8B5CF6; /* Neon Purple */
+  margin-top: 0.5rem;
+  border-radius: 2px;
 }
 
-.label{
-    font-size: 20px;
-    font-weight: 550;
-    margin-top: 10px;
+.formElement {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
 }
 
-.input{
-    background-color: #ffffff;
-    margin-left: -0.1px;
-    border-radius: 9px;
-    border: none;
-    width: 50rem;
-    height: 45px;
-    font-size: 18px;
+.formBag {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.textarea{
-    background-color: #ffffff;
-    margin-left: -0.1px;
-    border-radius: 9px;
-    border: none;
-    font-size: 20px;
-    padding: 10px;
+.label {
+  color: #E0E0E0; /* Soft readable white */
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-.btn{
-    width: 80px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    margin-left: 330px;
-    margin-top: 15px;
-    font-size: 15px;
-    font-weight: 550;
+/* Input Fields styling rules (Text inputs) */
+.input {
+  background-color: #1E1E24; /* Slightly elevated slate canvas input rows */
+  color: #FFFFFF;
+  border: 1px solid #333339;
+  border-radius: 8px;
+  width: 100%;
+  height: 48px;
+  font-size: 1.05rem;
+  padding: 0 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn:disabled{
-    background-color: grey;
-    color: rgb(205, 196, 196);
-    cursor: not-allowed;
+/* Dropdown Field styling rules */
+.selectInput {
+  background-color: #1E1E24;
+  color: #FFFFFF;
+  border: 1px solid #333339;
+  border-radius: 8px;
+  width: 100%;
+  height: 48px;
+  font-size: 1.05rem;
+  padding: 0 1rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
 }
 
-.btn:not(:disabled){
-    background-color: black;
-    color: #ffffff;
-    cursor: pointer;
+/* Textarea input canvas */
+.textarea {
+  background-color: #1E1E24;
+  color: #FFFFFF;
+  border: 1px solid #333339;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 250px; /* Plenty of writing space */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding: 1rem;
+  outline: none;
+  resize: vertical; /* Allows resizing safely downwards only */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn:active{
-    background-color: rgb(199, 185, 185);
+/* Input glow effect when active/focused */
+.input:focus, .selectInput:focus, .textarea:focus {
+  border-color: #8B5CF6;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.15);
 }
 
-.success{
-    margin-top: 1rem;
-    color: green;
-    font-weight: 500;
-    transition: opacity 0.5s ease-in-out; 
+/* Submit Action Button styling rules */
+.btn {
+  height: 46px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0 2rem;
+  align-self: flex-start; /* Keeps the button cleanly on the left instead of stretching stretching full screen width */
+  transition: all 0.2s ease;
+}
+
+/* Button behavior rules based on disabled parameter state flows */
+.btn:disabled {
+  background-color: #2D2D35;
+  color: #6B6B76;
+  cursor: not-allowed;
+}
+
+.btn:not(:disabled) {
+  background-color: #8B5CF6;
+  color: #FFFFFF;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.btn:not(:disabled):hover {
+  background-color: #7C3AED;
+  transform: translateY(-1px);
+}
+
+/* Success flash confirmation string */
+.success {
+  color: #10B981; /* High contrast emerald green toast style confirmation colors */
+  background-color: rgba(16, 185, 129, 0.1);
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  border-left: 4px solid #10B981;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Handheld Layout Adjustments */
+@media (max-width: 600px) {
+  .pageWrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  .containerName {
+    font-size: 1.75rem;
+  }
+
+  .btn {
+    width: 100%; /* Spans full card row width on smaller viewports */
+    text-align: center;
+  }
 }

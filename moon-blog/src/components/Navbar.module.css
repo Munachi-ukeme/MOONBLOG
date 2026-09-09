@@ -1,40 +1,122 @@
-*{
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-    font-family: sans-serif;
+/* Core Header Configuration Panel Box Frame */
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 1rem 2rem;
+  background-color: #121212; /* Deep Charcoal elevation canvas background */
+  border-bottom: 1px solid #1E1E24;
+  z-index: 1000;
 }
 
-.navbar{
-    justify-content: space-around;
+.brandLink {
+  text-decoration: none;
+}
+
+.brandName {
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Accent element distinguishing the administrative layout view */
+.adminTag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #8B5CF6; /* Neon Purple signature branding colors */
+  background-color: rgba(139, 92, 246, 0.15);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Desktop Links Row Horizontal Alignments */
+.navs {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem; /* Clean responsive fluid grid column margins */
+}
+
+.navs a {
+  color: #E0E0E0; /* Soft readable white font */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navs a:hover {
+  color: #8B5CF6; /* Transitions text highlights purple on mouse hover */
+}
+
+/* Distinct color formatting for system logout actions */
+.logoutBtn {
+  color: #EF4444 !important; /* Contrasting system warning bright red */
+}
+
+.logoutBtn:hover {
+  color: #F87171 !important;
+}
+
+/* --- Responsive Hamburger Icon Trigger Layout --- */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #E0E0E0;
+  transition: 0.3s ease;
+  border-radius: 2px;
+}
+
+/* --- Responsive Mobile Breakpoint Layout Layer --- */
+@media (max-width: 768px) {
+  .hamburger {
     display: flex;
-    align-items: center;
-    padding-top: 1.3rem;
-    padding-bottom: 1.3rem;
-    background-color: #333;
-    margin: 0px;
-}
+  }
 
-.navbar h1{
-    color: white;
-}
+  /* Morphing hamburger lines into a structural X when active */
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: #8B5CF6;
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: #8B5CF6;
+  }
 
-.navbar a{
-    text-decoration: none;
-}
+  /* Structural hidden slide drawer navigation layout block on mobile screens */
+  .navs {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #121212;
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+    border-bottom: 1px solid #1E1E24;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
 
-.navs{
+  /* Exposes layout drawer block to view when hamburger state flips true */
+  .navs.navOpen {
     display: flex;
-    gap: 100px;
-    font-size: 17px
-}
-
-.navs a{
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.navs a:hover{
-    color: burlywood;
+  }
 }

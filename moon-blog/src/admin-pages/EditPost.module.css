@@ -1,87 +1,152 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
+/* Universal Background Outer Page Wrapper */
+.pageWrapper {
+  background-color: #0b0b0d; /* Deep charcoal background canvas */
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-.container{
-    background-color: #ece0e0;
-    height: 90vh;
-    max-width: 100%;
+/* Core Form Card Box Frame */
+.container {
+  background-color: #121212; /* Elevation panel container matching navbar */
+  width: 100%;
+  max-width: 850px;
+  padding: 3rem;
+  border-radius: 12px;
+  border: 1px solid #1E1E24;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-.containername{
-    padding-left: 300px;
-    padding-top: 50px;
-    font-size: 35px;
-    font-weight: 550;
-    margin-bottom: 30px;
+.containerName {
+  color: #FFFFFF;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
-.formbag{
-    margin-left: 300px;
-    display: flex;
-    flex-direction: column;
+/* Neon Purple under-line element accent bar */
+.containerName::after {
+  content: "";
+  display: block;
+  width: 45px;
+  height: 4px;
+  background-color: #8B5CF6;
+  margin-top: 0.5rem;
+  border-radius: 2px;
 }
 
-.label{
-    font-size: 20px;
-    font-weight: 550;
-    margin-top: 5px;
+.formElement {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
 }
 
-.input{
-    background-color: #ffffff;
-    margin-left: -0.1px;
-    border-radius: 9px;
-    border: none;
-    width: 50rem;
-    height: 45px;
-    font-size: 18px;
+.formBag {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-textarea{
-    background-color: #ffffff;
-    margin-left: -0.1px;
-    border-radius: 9px;
-    border: none;
-    font-size: 20px;
-    padding: 10px;
-    width: 50rem;
-    height: 180px;
-    overflow-y: auto;
-    resize: none;
+.label {
+  color: #E0E0E0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-.btn{
-    width: 80px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    margin-left: 330px;
-    margin-top: 15px;
-    font-size: 15px;
-    font-weight: 550;
-    background-color: black;
-    color: #ffffff;
-    cursor: pointer;
+/* Input Fields styling rules (Text and select dropdown inputs) */
+.input, .selectInput {
+  background-color: #1E1E24; /* Slate input rows */
+  color: #FFFFFF;
+  border: 1px solid #333339;
+  border-radius: 8px;
+  width: 100%;
+  height: 48px;
+  font-size: 1.05rem;
+  padding: 0 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn:active{
-    background-color: rgb(199, 185, 185);
-    color: black;
+/* Textarea input canvas */
+.textarea {
+  background-color: #1E1E24;
+  color: #FFFFFF;
+  border: 1px solid #333339;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 250px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding: 1rem;
+  outline: none;
+  resize: vertical; /* Allows resizing safely downwards only */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-
-.success{
-    margin-top: 1rem;
-    color: green;
-    font-weight: 500;
-    transition: opacity 0.5s ease-in-out; 
-    opacity: 0;
+/* Border shifts purple when you are actively typing inside a field */
+.input:focus, .selectInput:focus, .textarea:focus {
+  border-color: #8B5CF6;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.15);
 }
 
-.success.hidden{
-    opacity: 0;
+/* Submit Action Button styling rules */
+.btn {
+  height: 46px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0 2.5rem;
+  align-self: flex-start; /* Aligns clean left bound instead of full screen stretching */
+  background-color: #8B5CF6;
+  color: #FFFFFF;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #7C3AED;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  background-color: #6D28D9;
+  transform: translateY(0);
+}
+
+/* Status Alert Message Displays (Green for success/Info, light red overlay tags on failure alerts) */
+.successMessage {
+  color: #10B981;
+  background-color: rgba(16, 185, 129, 0.1);
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  border-left: 4px solid #10B981;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Responsive configurations for mobile layouts */
+@media (max-width: 600px) {
+  .pageWrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  .containerName {
+    font-size: 1.75rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
 }

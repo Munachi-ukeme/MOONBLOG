@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import style from "./MyBlog.module.css";
 
 function MyBlogs() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [statusMsg, setStatusMsg] = useState("");
+  const [isSuccess, setIsSuccess] = useState(true);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -13,7 +15,7 @@ function MyBlogs() {
         const data = await response.json();
         setBlogs(data);
       } catch (error) {
-        console.log("Error fetching blogs:", error);
+        console.error("Error fetching blogs:", error);
       } finally {
         setLoading(false);
       }
@@ -27,53 +29,84 @@ function MyBlogs() {
     if (!confirmDelete) return;
 
     const token = localStorage.getItem('token');
-    try{
+    try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs/${id}/delete`, {
         method: "DELETE",
-        headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`, },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
       });
 
       if (response.ok) {
-            // Remove deleted blog from state
-            setBlogs(blogs.filter((blog) => blog._id !==id));
-            alert("Blog deleted successfully!");
+        // Remove deleted blog from state
+        setBlogs(blogs.filter((blog) => blog._id !== id));
+        setIsSuccess(true);
+        setStatusMsg("Blog deleted successfully! 🗑️");
+        
+        setTimeout(() => setStatusMsg(""), 3000);
       } else {
-        alert("Error deleting blog");
+        setIsSuccess(false);
+        setStatusMsg("Error deleting blog from database");
       }
     } catch (error) {
-      alert("Something went wrong");
+      setIsSuccess(false);
+      setStatusMsg("Something went wrong. Connection failed.");
     }
   };
 
-  if (loading) return <p className={style.loading}>Loading blogs...</p>;
+  if (loading) {
+    return (
+      <div className={style.pageWrapper}>
+        <p className={style.loading}>Updating dashboard entries...</p>
+      </div>
+    );
+  }
 
   return (
-    <div>
-      <h2 className={style.myblog}>My Blogs</h2>
+    <div className={style.pageWrapper}>
+      <div className={style.headerContainer}>
+        <h2 className={style.myblog}>Admin Dashboard: Manage Blogs</h2>
+        {statusMsg && (
+          <p className={isSuccess ? style.successToast : style.errorToast}>
+            {statusMsg}
+          </p>
+        )}
+      </div>
+
       {blogs.length === 0 ? (
-        <p className={style.emptyblog}>No blogs found.</p>
+        <p className={style.emptyblog}>No blog entries found in your database.</p>
       ) : (
-        <ul>
-          <div className={style.bloglist}>
+        /* Replaced invalid structural markup with a clean semantic grid array list */
+        <ul className={style.bloglist}>
           {blogs.map((blog) => (
             <li key={blog._id} className={style.blogcard}>
-              <h3>{blog.title}</h3>
-              <p>Category: {blog.category}</p>
-              <p>{blog.body}</p>
+              <div className={style.cardContent}>
+                <h3 className={style.blogTitle}>{blog.title}</h3>
+                <span className={style.categoryTag}>{blog.category}</span>
+                <p className={style.blogSnippet}>
+                  {blog.body ? `${blog.body.substring(0, 160)}...` : "Empty blog body content..."}
+                </p>
+              </div>
 
-              <p className={style.category}>
-              <strong>By:</strong> {blog.author?.userName} | {""}
-              <em>{blog.createdAt ? new Date(blog.createdAt).toDateString() : "No date"}</em>
-              </p>
-              
-              <Link to={`/edit/${blog._id}`}>Edit</Link>
-              {" | "}
-              <button onClick={() => handleDelete(blog._id)} className={style.button}>Delete</button>
+              <div className={style.cardFooter}>
+                <p className={style.metaText}>
+                  <strong>By:</strong> {blog.author?.userName || "Admin"} <br />
+                  <em>{blog.createdAt ? new Date(blog.createdAt).toDateString() : "No date"}</em>
+                </p>
+                
+                <div className={style.actionButtons}>
+                  <Link to={`/edit/${blog._id}`} className={style.editLink}>
+                    Edit
+                  </Link>
+                  <button onClick={() => handleDelete(blog._id)} className={style.deleteButton}>
+                    Delete
+                  </button>
+                </div>
+              </div>
             </li>
           ))}
-           </div>
         </ul>
-       
       )}
     </div>
   );

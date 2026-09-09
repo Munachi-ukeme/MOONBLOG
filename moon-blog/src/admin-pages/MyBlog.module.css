@@ -1,59 +1,211 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    
+/* Universal Background Outer Page Wrapper */
+.pageWrapper {
+  background-color: #0b0b0d; /* Universal deep abyss canvas */
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #E0E0E0;
 }
 
-.myblog{
-    text-align: center;
-    margin-top: 3rem;
-    font-size: 35px;
-    font-weight: 600;
+.headerContainer {
+  max-width: 1200px;
+  margin: 0 auto 2.5rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.loading{
-    text-align: center;
-    margin-top: 3.1rem;
-    font-size: 20px;
-    font-weight: 500;
-    color: green;
+.myblog {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  position: relative;
+  margin: 0;
 }
 
-.emptyblog{
-    text-align: center;
-    color: red;
-    margin-top: 3.3rem;
-    font-size: 20px;
-    font-weight: 500;
+/* Neon Purple under-line accent indicator */
+.myblog::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background-color: #8B5CF6;
+  margin-top: 0.5rem;
+  border-radius: 2px;
 }
 
-.bloglist{
-   display: grid;
-   grid-template-columns: repeat(auto-fill, minmax(400px, 3fr));
-   padding: 20px;
-   gap: 20px;
+.loading, .emptyblog {
+  text-align: center;
+  font-size: 1.15rem;
+  padding: 4rem 0;
 }
 
-.blogcard{
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
-    cursor: pointer;
+.loading {
+  color: #9CA3AF;
 }
 
-.button{
-    width: 100px;
-    height: 30px;
-    border-radius: 6px;
-    border: none;
-    font-size: 15px;
-    background-color: black;
-    color: #ffffff;
-    cursor: pointer;
-    margin-top: 18px;
+.emptyblog {
+  color: #6B7280;
+  font-style: italic;
+}
+
+/* --- Responsive CSS Grid Setup --- */
+.bloglist {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+/* --- Admin Post Card Frame Layout --- */
+.blogcard {
+  background-color: #121212; /* Deep Charcoal Panel */
+  border: 1px solid #1E1E24;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.blogcard:hover {
+  transform: translateY(-4px);
+  border-color: #8B5CF6; /* Border glows purple when hovered */
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.blogTitle {
+  font-size: 1.35rem;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.categoryTag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #8B5CF6;
+  background-color: rgba(139, 92, 246, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.blogSnippet {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #D1D5DB; /* Silver secondary text contrast layer */
+  margin: 0;
+}
+
+/* --- Card Action Footer Controls --- */
+.cardFooter {
+  border-top: 1px solid #1E1E24;
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.metaText {
+  font-size: 0.85rem;
+  color: #9CA3AF;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Styled Edit Navigation Link Button */
+.editLink {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  background-color: #1E1E24;
+  color: #E0E0E0;
+  border: 1px solid #333339;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.editLink:hover {
+  background-color: #8B5CF6; /* Transforms to Neon Purple */
+  border-color: #8B5CF6;
+  color: #FFFFFF;
+}
+
+/* Styled Action Delete Trigger Button */
+.deleteButton {
+  flex: 1;
+  height: 36px;
+  background-color: transparent;
+  color: #EF4444; /* Alert Warning Red color signature */
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.deleteButton:hover {
+  background-color: #EF4444;
+  color: #FFFFFF;
+  border-color: #EF4444;
+}
+
+/* --- Inline System Action Feedback Notifications --- */
+.successToast {
+  color: #10B981;
+  background-color: rgba(16, 185, 129, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #10B981;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.errorToast {
+  color: #EF4444;
+  background-color: rgba(239, 68, 68, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #EF4444;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* --- Handheld Screen Breaks --- */
+@media (max-width: 600px) {
+  .pageWrapper {
+    padding: 2rem 1rem;
+  }
+
+  .myblog {
+    font-size: 1.75rem;
+  }
+
+  .bloglist {
+    grid-template-columns: 1fr;
+  }
 }

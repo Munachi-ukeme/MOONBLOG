@@ -1,71 +1,38 @@
-import React, {useState} from "react";
+import React from "react";
 import AdminHomePic from "../assets/AdminHomePic.jpg";
 import Login from "./Login";
-import Signup from "./Signup";
 import style from "./AdminHome.module.css";
 
 function AdminHome() {
-  // This makes the signin form not to show. only page pic and signup
-  const [showLogin, setShowLogin] = useState(false);
+  return (
+    <div className={style.portalContainer}>
+      
+      {/* Left Column: Authentic Admin Login Interface Hook */}
+      <div className={style.portalLeft}>
+        <div className={style.formWrapper}>
+          <Login />
+        </div>
+      </div>
 
-  <Signup />
-    if (showLogin){
-        return(
-          <div className={style.signincontainer}>
-            
-            <div className={style.signinleft}>
-              <Login />
-              <p className={style.notadmin}>
-              Not an Admin? {" "}
-              <button className={style.signupoption} onClick={() => setShowLogin(false)} >Signup</button>
-            </p>
-            </div>
+      {/* Right Column: Hero Showcase and Portal Brand Framing */}
+      <div className={style.portalRight}>
+        <div className={style.imageOverlay}></div>
+        <img src={AdminHomePic} alt="Admin Portal Dashboard" className={style.portalPic} />
+        <AdminWelcomeMessage />
+      </div>
 
-            {/* LOGIN PAGE */}
-            <div className="right">
-              <img src={AdminHomePic} alt="AdminHomePic" className={style.loginhomepic} />
-              < LoginHomeWelcomeMessage />
-            </div>
-          </div>
-        );
-      } else{
-        // SIGNUP PAGE
-        return(
-          <div className={style.signupcontainer}>
-
-            <div className="left">
-            <img src={AdminHomePic} alt="AdminHomePic" className={style.homepic} />
-            <HomeWelcomeMessage />
-            </div>
-
-          <div className={style.signupright}>
-            <Signup setShowLogin={setShowLogin}/>
-            <p className={style.alreadyanadmin}>
-              Already an Admin? {""}
-              <button onClick={() => setShowLogin(true)} className={style.signinoption}>Signin</button>
-            </p>
-          </div>
-          </div>   
-        );
-      }
-    }
+    </div>
+  );
+}
 
 export default AdminHome;
 
-function HomeWelcomeMessage() {
-  return(
-    <div className={style.welcomemessage}>
-      <h2 className={style.welcomeheader}>Welcome to Admin Portal</h2>
-      <p className={style.welcomesemiheader}>Manage your blogs, users, and more with ease.</p>
+/* Consolidated single welcoming module for clean presentation layout lines */
+function AdminWelcomeMessage() {
+  return (
+    <div className={style.welcomeMessage}>
+      <h2 className={style.welcomeHeader}>Welcome to Admin Portal</h2>
+      <p className={style.welcomeSubheader}>Manage your blogs, updates, and platform layout parameters with ease.</p>
     </div>
   );
 }
-function LoginHomeWelcomeMessage() {
-  return(
-    <div className={style.loginwelcomemessage}>
-      <h2 className={style.loginwelcomeheader}>Welcome to Admin Portal</h2>
-      <p className={style.loginwelcomesemiheader}>Manage your blogs, users, and more with ease.</p>
-    </div>
-  );
-}
-

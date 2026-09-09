@@ -1,261 +1,108 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+/* Core viewport layout split mapping screen bounds */
+.portalContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: #0b0b0d; /* Universal deep abyss background canvas */
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow: hidden;
 }
 
-.signincontainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: grey;
-    padding: 2rem;
-    height: 100vh;
+/* --- Left Column Layout (The Login Form Wrapper) --- */
+.portalLeft {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #121212; /* Elevation slate panel background */
+  padding: 2.5rem;
+  z-index: 10;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.signinleft{
-    background-color: plum;
-    width: 60vh;
-    height: 80vh;
-    border-radius: 10px;
+.formWrapper {
+  width: 100%;
+  max-width: 400px;
 }
 
-
-.login{
-    text-align: center;
-    padding: 50px;
+/* --- Right Column Layout (Hero Creative Asset Showcase) --- */
+.portalRight {
+  flex: 1.4;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b0b0d;
 }
 
-.loginformbag{
-    flex-direction: column;
-    display: flex;
+.portalPic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.label{
-    font-size: 20px;
-    font-weight: 500;
-    padding: 5px;
-    margin-bottom: -5px;
-    margin-left: 20px;
-
+/* Deep overlay gradient mask blending the right image smoothly into your dark theme */
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #121212, rgba(11, 11, 13, 0.75));
+  z-index: 2;
 }
 
-input{
-    width: 350px;
-    height: 40px;
-    border-radius: 5px;
-    border: none;
-    margin-bottom: 10px;
-    font-size: 20px;
-    margin-left: 25px;
-    padding: 10px;
+/* --- Admin Welcome Graphic Typography Overlay --- */
+.welcomeMessage {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 500px;
+  padding: 2rem;
+  background-color: rgba(18, 18, 18, 0.45); /* Frosty acrylic dark filter frame */
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.btn{
-    width: 100px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    margin-left: 160px;
-    margin-top: 25px;
-    font-size: 15px;
-    font-weight: 550;
+.welcomeHeader {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -0.02em;
 }
 
-/* enabled state */
-.btn:not(:disabled){
-    background-color: #000000;
-    color: white;
+/* Neon purple anchor element highlights */
+.welcomeHeader::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background-color: #8B5CF6;
+  margin: 0.75rem auto 0 auto;
+  border-radius: 2px;
 }
 
-/*disabled state  */
-.btn:disabled{
-    background-color: grey;
-    color: #666;
-    cursor: not-allowed;
+.welcomeSubheader {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #D1D5DB; /* Contrasting silver readability layer */
+  margin: 0;
 }
 
-.forget{
-    text-align: center;
-    padding: 20px;
-    color: green;
-}
-
-.forgetpassword{
-   color: green;
-   text-decoration: none;
-}
-
-.forgetpassword:hover{
-    color: black;
-}
-
-.notadmin{
-    text-align: center;
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.signupoption{
-    width: 100px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 15px;
-    background-color: black;
-    color: #f9f9f9;
-}
-
-.signupoption:active{
-    background-color: gray;
-    color: white;
-}
-
-
-/* signup form */
-
-.signupcontainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: grey;
-    padding: 2rem;
-    height: 100vh;
-}
-
-.signupright{
-    background-color: plum;
-    width: 60vh;
-    height: 85vh;
-    border-radius: 10px;
-}
-
-.signup{
-    text-align: center;
-    padding: 50px;
-    font-size: 30px;
-}
-
-.formbag{
-    flex-direction: column;
-    display: flex;
-}
-
-.signuplabel{
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: -5px;
-    padding: 5px;
-    margin-left: 20px;
-}
-
-.signupinput{
-    width: 350px;
-    height: 40px;
-    border-radius: 5px;
-    border: none;
-    margin-bottom: 10px;
-    font-size: 20px;
-    margin-left: 25px;
-    padding: 10px;
-
-}
-
-.signupbtn{
-    width: 100px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    margin-left: 150px;
-    margin-top: 5px;
-    font-size: 17px;
-}
-
-.signupbtn:disabled{
-    cursor: not-allowed;
-    background-color: grey;
-    color: #666;
-}
-
-.signupbtn:not(:disabled){
-    background-color: #000000;
-    color: white;
-    cursor: pointer;
-
-}
-
-.alreadyanadmin{
-    text-align: center;
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.signinoption{
-    width: 80px;
-    height: 35px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 17px;
-    background-color: #000000;
-    color: white;
-}
-
-.signinoption:active{
-    background-color: grey;
-    color: white;
-}
-
-.right{
-    position: relative;
-    display: inline-block;
-}
-
-.homepic{
-    height: auto;
-    width: 60rem;
-    border-radius: 8px;
-}
-
-.welcomemessage{
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    color: white;
-    text-align: center;
-    line-height: 50px;
-}
-
-.welcomeheader{
-    font-size: 55px;
-}
-
-.welcomesemiheader{
-    font-size: 25px;
-}
-
-.loginhomepic{
-      height: auto;
-    width: 60rem;
-    border-radius: 8px;
-}
-
-.loginwelcomemessage{
-    position: absolute;
-    top: 50%;
-    right: 10%;
-    color: white;
-    text-align: center;
-    line-height: 50px;
-}
-
-.loginwelcomeheader{
-    font-size: 55px;
-}
-
-.loginwelcomesemiheader{
-    font-size: 25px;
+/* --- Responsive Smartphone Viewport Adaptation Layers --- */
+@media (max-width: 900px) {
+  /* Hides the hero graphic assets completely on mobile to prioritize form functionality layout */
+  .portalRight {
+    display: none;
+  }
+  
+  .portalLeft {
+    padding: 1.5rem;
+    box-shadow: none;
+  }
 }

@@ -1,84 +1,91 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import style from "./AdminHome.module.css"; // i styled this part in AdminHome.module.css
-import { AuthContext } from '../user-pages/AuthContext';
+import style from "./AdminHome.module.css"; 
 
 function Login() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
-  const {userLogin} = useContext(AuthContext);
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMsg(""); // Clear errors on fresh attempt
 
-    
-    try{
+    try {
       const loginInfo = await fetch(`${import.meta.env.VITE_API_URL}/api/auths/login`, {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({userName, password, role: "admin"}),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userName, password, role: "admin" }),
       });
 
       const data = await loginInfo.json();
       console.log("Response:", data);
 
-      if (loginInfo.ok && data.token){
-        //update context + local storage
-        userLogin(data.token);
+      if (loginInfo.ok && data.token) {
+        // Save the admin access token straight to local storage parameters
+        localStorage.setItem('token', data.token);
 
-        //redirect to myblogs
+        // Direct transition into your custom administrative list dashboard
         navigate("/myblogs");
-      } else{
-        alert(data.message || "Login failed");
+      } else {
+        setErrorMsg(data.message || "Invalid administrative credentials");
       }
-    } catch(err) {
+    } catch (err) {
       console.error("Login error:", err);
-      alert("something went wrong. please try again");
+      setErrorMsg("Connection failure. Check backend server logs.");
     }
   };
 
-
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h1 className={style.login}>Login</h1>
-        {/* Add arrow icons for back, user, password */}
-         
-         <div className={style.loginformbag}>
-        <label htmlFor="userName" className={style.label}>Username:</label>
-        <input
-        id='userName'
-        type="text"
-        value={userName}
-        onChange={(e) => setUserName(e.target.value)}
-        className={style.input}
-         />
-         </div>
+    <div className={style.loginBox}>
+      <form onSubmit={handleSubmit} className={style.formbag}>
+        <h1 className={style.loginHeader}>Admin Login</h1>
+        
+        {/* Clean dynamic notification frame for credential rejections */}
+        {errorMsg && <p className={style.errorMessage}>{errorMsg}</p>}
 
         <div className={style.loginformbag}>
-          <label htmlFor="password" className={style.label}>Password:</label>
-        <input
-        id='password'
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className={style.input}
-         />
+          <label htmlFor="userName" className={style.label}>Username</label>
+          <input
+            id="userName"
+            type="text"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            placeholder="Enter admin username"
+            className={style.input}
+            required
+          />
+        </div>
+
+        <div className={style.loginformbag}>
+          <label htmlFor="password" className={style.label}>Password</label>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter admin password"
+            className={style.input}
+            required
+          />
         </div>
 
         <button
-        className={style.btn}
-        type="submit"
-        disabled = {!userName ||!password}
-        >Login</button>
+          className={style.btn}
+          type="submit"
+          disabled={!userName || !password}
+        >
+          Login
+        </button>
       </form>
+      
       <p className={style.forget}>
-        Forgotten Password?
-          <Link to="" className={style.forgetpassword}> Reset </Link>
+        Forgot Password? 
+        <Link to="" className={style.forgetpassword}> Reset Key</Link>
       </p>
     </div>
-  )
+  );
 }
 
 export default Login;
