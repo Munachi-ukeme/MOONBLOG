@@ -1,20 +1,28 @@
-// User.js define the structure of the signup and signin form in the database
-
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
-  lastName:  { type: String, sparse: true},
-  firstName: { type: String, sparse: true},
-  userName: { type: String, sparse: true, unique: true},
-  email:     { 
-    type: String,    
-    required: true,
+const adminSchema = new mongoose.Schema({
+  userName: { 
+    type: String, 
+    required: true, 
     unique: true,
-    match: [/^\S+@\S+\.\S+$/, "Please enter a valid email"] 
+    trim: true // Automatically cleans accidental trailing blank spaces from input strings
   },
-  password:  { type: String, required: true, minLength: 12 },
-  role:      { type: String, required: true, enum: ["user", "admin"]},
-  createdAt: { type: Date, default: Date.now }
+
+  password: { 
+    type: String, 
+    required: true, 
+    minlength: 12 
+  },
+  role: { 
+    type: String, 
+    required: true, 
+    default: "admin", 
+    enum: ["admin"] // Locks document parameters exclusively to administrative authorization access tokens
+  },
+  createdAt: { 
+    type: Date, 
+    default: Date.now 
+  }
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", adminSchema);
