@@ -24,7 +24,8 @@ function App() {
   };
 
   return (
-    <Router>
+    <div style={{ backgroundColor: "#0b0b0d", minHeight: "100vh", width: "100%", overflowX: "hidden" }}>
+      <Router>
       <Routes>
         {/* Admin routes */}
         <Route path="/adminpage" element={<AdminHome />} />
@@ -81,6 +82,7 @@ function App() {
        
       </Routes>
     </Router>
+    </div>
   );
 }
 

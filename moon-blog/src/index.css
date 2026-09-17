@@ -1,23 +1,28 @@
-/* --- Universal Global Settings Reset --- */
-* {
-  box-sizing: border-box;
+/* 1. Global Box-Sizing and Margin/Padding Reset */
+*, *::before, *::after {
+  box-sizing: border-box !important;
   margin: 0;
   padding: 0;
 }
 
-/* --- Global Screen Framework Setup --- */
-body, html {
-  background-color: #0b0b0d;
-  color: #E0E0E0; 
-  width: 100%;
+/* 2. Unified Master Canvas Setup */
+html, 
+body, 
+#root {
+  background-color: #0b0b0d !important; /* Force true background dark hues everywhere */
+  color: #E0E0E0; /* Soft readable white font base default */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  min-height: 100vh;
-  overflow-x: hidden; 
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important; /* Locks out right-side white pixel bleeding columns */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Global Premium Custom Scrollbar Styling --- */
+/* 3. Global Premium Custom Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -36,7 +41,7 @@ body, html {
   background: #8B5CF6; /* Scrollbar highlights neon purple when grabbed */
 }
 
-/* --- Global Image Security Anchors --- */
+/* 4. Global Image Layout Security Anchors */
 img {
   max-width: 100%;
   height: auto;
