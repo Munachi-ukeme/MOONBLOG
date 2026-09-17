@@ -1,212 +1,286 @@
+/* --- Master Layout Framework --- */
 .pageWrapper {
-  background-color: #0b0b0d; /* Universal deep abyss canvas */
-  color: #E0E0E0;
-  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #0F172A; /* Deep Slate Site Canvas */
+  color: #94A3B8; /* Silver Readability Text */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   min-height: 100vh;
 }
 
-/* --- Hero Layout Configuration --- */
+/* --- Hero Section (Magazine Style Split) --- */
 .hero {
-  background-color: #121212; /* Elevation background matching navbar */
-  padding: 5rem 2rem;
-  border-bottom: 1px solid #1E1E24;
+  background-color: #1E293B; /* Muted Slate Layering */
+  padding: 6rem 2rem;
+  border-bottom: 1px solid #334155;
 }
 
 .heroContent {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 .textContainer {
-  flex: 1;
+  flex: 1.2;
 }
 
 .heroTitle {
-  font-size: 3.5rem;
-  color: #FFFFFF;
-  margin: 0 0 1rem 0;
+  font-size: 3.25rem;
+  color: #FFFFFF; /* Crisp White Header */
   font-weight: 800;
-  line-height: 1.1;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
 }
 
 .heroSubtitle {
-  font-size: 1.25rem;
-  color: #9CA3AF;
-  margin-bottom: 2rem;
+  font-size: 1.15rem;
   line-height: 1.6;
+  color: #94A3B8;
+  margin-bottom: 2rem;
 }
 
 .heroBtn {
-  background-color: #8B5CF6; /* Bright Neon Purple Accent */
-  color: #FFFFFF;
+  background-color: #A78BFA; /* Clean Soft Lavender */
+  color: #0F172A;
   border: none;
-  padding: 0.8rem 2rem;
-  font-size: 1.1rem;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
 }
 
 .heroBtn:hover {
-  background-color: #7C3AED;
-  transform: translateY(-2px);
+  background-color: #C084FC; /* Immediate static fallback shift */
 }
 
-/* --- The Image Masking Frame Solution --- */
+/* --- Profile Graphic Bounding Box --- */
 .imageContainer {
-  flex: 1;
+  flex: 0.8;
   display: flex;
   justify-content: center;
 }
 
 .imageFrame {
-  width: 380px;
-  height: 380px;
-  border-radius: 50%; /* Trims the square edges into a smooth circle */
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
   overflow: hidden;
-  border: 4px solid #8B5CF6; /* High-tech neon bounding wall */
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.25); /* Ambient neon backing glow */
-  background-color: #FFFFFF; /* Preserves contrast under the white backdrop */
+  border: 3px solid #334155;
+  background-color: #FFFFFF;
 }
 
 .image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Keeps image proportions clean without squishing */
+  object-fit: cover;
 }
 
-/* --- Latest Feed Section Layouts --- */
+/* --- Main Blog Feed Layout --- */
 .cardContainer {
-  max-width: 1200px;
-  margin: 4rem auto;
-  padding: 0 1.5rem;
+  max-width: 1140px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+}
+
+.sectionHeader {
+  border-bottom: 2px solid #1E293B;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1.85rem;
+  font-weight: 700;
   color: #FFFFFF;
-  margin-bottom: 2.5rem;
-  border-left: 4px solid #8B5CF6;
-  padding-left: 0.75rem;
+  letter-spacing: -0.01em;
 }
 
+/* --- Static Clean Article Grid --- */
 .blogList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
+/* --- The Editorial Article Card Container --- */
 .blogCard {
-  background-color: #121212;
-  border: 1px solid #1E1E24;
+  background-color: #1E293B; /* Matches elevated slate */
+  border: 1px solid #334155;
   border-radius: 12px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  transition: all 0.2s ease;
 }
 
+/* 🚨 No translate/lifts or drop-shadow animations on hover */
 .blogCard:hover {
-  transform: translateY(-4px);
-  border-color: #8B5CF6;
+  border-color: #475569; /* Simple static border focus highlight */
 }
 
-.blogTitle {
-  font-size: 1.4rem;
-  color: #FFFFFF;
-  margin: 0 0 0.5rem 0;
-  line-height: 1.3;
+.cardContent {
+  display: flex;
+  flex-direction: column;
 }
 
-.blogCategory {
-  display: inline-block;
-  font-size: 0.8rem;
-  color: #8B5CF6;
-  background-color: rgba(139, 92, 246, 0.1);
-  padding: 0.2rem 0.6rem;
+/* --- Meta Top Information Row --- */
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.categoryTag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
   border-radius: 4px;
-  margin-bottom: 1rem;
 }
 
-.blogBody {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #D1D5DB;
+/* Elegant topic desaturated tint blocks */
+.categoryTag.Tech {
+  color: #38BDF8;
+  background-color: rgba(56, 189, 248, 0.12);
 }
 
-.blogAuthor {
+.categoryTag.Business {
+  color: #34D399;
+  background-color: rgba(52, 211, 153, 0.12);
+}
+
+.categoryTag.Education {
+  color: #FBBF24;
+  background-color: rgba(251, 191, 36, 0.12);
+}
+
+.blogDate {
   font-size: 0.85rem;
-  color: #9CA3AF;
-  border-top: 1px solid #1E1E24;
-  padding-top: 1rem;
-  margin-bottom: 1rem;
+  color: #64748B;
 }
 
-.readMore {
-  background-color: #1E1E24;
-  color: #E0E0E0;
-  border: 1px solid #333339;
-  padding: 0.6rem 1.2rem;
-  width: 100%;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.readMore:hover {
-  background-color: #8B5CF6;
+/* --- Text Typography Layering --- */
+.blogTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
   color: #FFFFFF;
-  border-color: #8B5CF6;
+  line-height: 1.35;
+  margin: 0 0 0.75rem 0;
 }
 
+/* Immediate simple text color highlight */
+.blogCard:hover .blogTitle {
+  color: #A78BFA; 
+}
+
+.blogBodyText {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #94A3B8;
+  margin-bottom: 2rem;
+}
+
+/* --- Meta Bottom Author Row --- */
+.cardFooter {
+  border-top: 1px solid #334155;
+  padding-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.authorContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* Elegant single letter initial bubble profile */
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #0F172A;
+  color: #A78BFA;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #334155;
+}
+
+.authorName {
+  font-size: 0.85rem;
+  color: #64748B;
+}
+
+.authorName strong {
+  color: #CBD5E1;
+}
+
+/* Simple text link interface */
+.readLink {
+  color: #A78BFA;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.readLink:hover {
+  color: #C084FC;
+  text-decoration: underline; /* Simple traditional text focus indicator */
+}
+
+/* System Alerts / Disclaimers */
 .emptyMessage {
   grid-column: 1 / -1;
   text-align: center;
-  color: #6B7280;
-  padding: 3rem;
+  color: #64748B;
+  padding: 3rem 0;
   font-style: italic;
 }
 
 .errorMessage {
-  color: #EF4444;
-  text-align: center;
-  font-weight: bold;
+  color: #F87171;
+  background-color: rgba(248, 113, 113, 0.08);
   padding: 1rem;
-  background-color: rgba(239, 68, 68, 0.1);
   border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
   margin-bottom: 2rem;
 }
 
-/* --- Responsive Viewport Adaptation Layers --- */
+/* --- Fully Fluid Breakpoints Layout (No Transitions) --- */
 @media (max-width: 900px) {
   .heroContent {
-    flex-direction: column-reverse; /* Stacks image above header copy on small viewports */
+    flex-direction: column-reverse;
     text-align: center;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
 
   .imageFrame {
-    width: 280px;
-    height: 280px; /* Scales display bounds evenly down on mobile touch panels */
+    width: 240px;
+    height: 240px;
   }
-}
 
-@media (max-width: 480px) {
+  .cardContainer {
+    margin: 3.5rem auto;
+    padding: 0 1.25rem;
+  }
+
   .blogList {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
