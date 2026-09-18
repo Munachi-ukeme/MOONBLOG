@@ -177,7 +177,7 @@
 @media (max-width: 600px) {
   .footerContainer {
     padding: 4rem 1.25rem 2rem 1.25rem;
-    margin-top: 4rem;
+    margin-top: 0;
   }
 
   .inputGroup {
