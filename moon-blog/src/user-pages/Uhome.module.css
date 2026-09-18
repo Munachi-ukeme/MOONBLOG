@@ -1,4 +1,10 @@
 /* --- Master Layout Framework --- */
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .pageWrapper {
   background-color: #0F172A; /* Deep Slate Site Canvas */
   color: #94A3B8; /* Silver Readability Text */

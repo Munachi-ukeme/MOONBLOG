@@ -1,8 +1,13 @@
-/* --- Master Footer Container Framework --- */
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .footerContainer {
-  background-color: #1E293B; /* Matches elevated slate layout elements */
+  background-color: #1E293B; 
   border-top: 1px solid #334155;
-  color: #94A3B8; /* Smooth Silver Readability Hue */
+  color: #94A3B8; 
   padding: 5rem 2rem 2.5rem 2rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   margin-top: 6rem;

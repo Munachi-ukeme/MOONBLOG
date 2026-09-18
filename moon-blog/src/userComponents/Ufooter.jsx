@@ -43,7 +43,7 @@ const Ufooter = () => {
               <Link to="/">Home</Link>
               <Link to="/userAbout">About</Link>
               <Link to="/userBlogs">Blogs</Link>
-              <span className={style.fakeLink}>FAQs</span>
+              
             </nav>
           </div>
 

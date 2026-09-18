@@ -1,21 +1,26 @@
-/* --- Master Layout Framework --- */
+
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .aboutContainer {
-  max-width: 780px; /* Slimmer text measure is scientifically proven to reduce reading fatigue */
+  max-width: 780px; 
   margin: 5rem auto;
   padding: 0 2rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* --- Clean Static Article Cards --- */
 .aboutSection {
-  background-color: #1E293B; /* Elevated Muted Slate */
+  background-color: #1E293B;
   border: 1px solid #334155;
   padding: 3rem 2.5rem;
   border-radius: 12px;
   margin-bottom: 2.5rem;
 }
 
-/* --- Typographic Scale Hierarchies --- */
+
 .pageHeading {
   font-size: 2.25rem;
   font-weight: 800;
