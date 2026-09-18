@@ -14,7 +14,7 @@ const postSchema = new mongoose.Schema({
   },
   author: { 
     type: mongoose.Schema.Types.ObjectId, 
-    ref: "User", // Correctly points to your User collection (which holds your Admin details)
+    ref: "Ukeme Munachi", // Correctly points to your User collection (which holds your Admin details)
     required: true 
   },
   body: { 
