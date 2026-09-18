@@ -88,8 +88,8 @@
 /* --- Main Blog Feed Layout --- */
 .cardContainer {
   max-width: 1140px;
-  margin: 5rem auto;
-  padding: 0 2rem;
+  margin: 0 auto;
+   padding: 5rem 2rem;
 }
 
 .sectionHeader {
