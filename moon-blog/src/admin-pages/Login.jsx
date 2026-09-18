@@ -79,11 +79,6 @@ function Login() {
           Login
         </button>
       </form>
-      
-      <p className={style.forget}>
-        Forgot Password? 
-        <Link to="" className={style.forgetpassword}> Reset Key</Link>
-      </p>
     </div>
   );
 }
