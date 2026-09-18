@@ -62,7 +62,6 @@ const Ufooter = () => {
 
           <div className={style.footerColumn}>
             <h3 className={style.columnHeading}>Follow Us</h3>
-            {/* Standard anchor tags optimized for secure external platform redirects */}
             <div className={style.socialLinks}>
               <a href="https://facebook.com/profile.php?id=61577318323288" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <FaFacebook size={22} />

@@ -34,12 +34,13 @@ const Ublogs = ({ category }) => {
 
   return (
     <div className={style.cardContainer}>
-      {/* Dynamic title bar that adjusts cleanly */}
-      <h2 className={style.title}>
-        All Blogs {category ? `— ${category}` : "— Global"}
-      </h2>
+      {/* Editorial Page Header Section */}
+      <div className={style.pageHeader}>
+        <h2 className={style.title}>
+          All Blogs {category ? `— ${category}` : "— Global"}
+        </h2>
+      </div>
 
-      {/* Styled using pure CSS modules instead of inline attributes */}
       {error && (
         <p className={style.errorMessage}>
           Error: {error}
@@ -53,26 +54,45 @@ const Ublogs = ({ category }) => {
           </p>
         ) : blogs.length === 0 ? (
           <p className={`${style.statusMessage} ${style.emptyMessage}`}>
-            No blogs available in this category yet. Check back soon!
+            No articles available in this category yet. Check back soon!
           </p>
         ) : (
           blogs.map((blog) => (
-            <div key={blog._id} className={style.blogCard}>
-              <h3 className={style.blogTitle}>{blog.title}</h3>
-              
-              <p className={style.blogAuthor}>
-                <strong>By:</strong> {blog.author?.userName || "Anonymous"} |{" "}
-                <em>{blog.createdAt ? new Date(blog.createdAt).toDateString() : "No Date"}</em>
-              </p>
+            <article key={blog._id} className={style.blogCard}>
+              <div className={style.cardContent}>
+                {/* Meta Row: Topic Tag and Publication Date */}
+                <div className={style.metaRow}>
+                  <span className={`${style.categoryTag} ${style[blog.category]}`}>
+                    {blog.category}
+                  </span>
+                  <span className={style.blogDate}>
+                    {blog.createdAt ? new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : "Recent"}
+                  </span>
+                </div>
 
-              <p className={style.blogBody}>
-                {blog.body ? `${blog.body.substring(0, 220)}...` : "Empty post body..."}
-              </p>
+                {/* Editorial Typography Stack */}
+                <h3 className={style.blogTitle}>{blog.title}</h3>
+                <p className={style.blogBody}>
+                  {blog.body ? `${blog.body.substring(0, 160)}...` : "Click below to read the full published context of this entry..."}
+                </p>
+              </div>
 
-              <Link to={`/blogDetails/${blog._id}`}>
-                <button className={style.readMore}>Read More</button>
-              </Link>
-            </div>
+              {/* Clean Footer Row with Initial Profile Badge */}
+              <div className={style.cardFooter}>
+                <div className={style.authorContainer}>
+                  <div className={style.avatar}>
+                    {(blog.author?.userName || "M").charAt(0).toUpperCase()}
+                  </div>
+                  <span className={style.authorName}>
+                    By <strong>{blog.author?.userName || "Anonymous"}</strong>
+                  </span>
+                </div>
+
+                <Link to={`/blogDetails/${blog._id}`} className={style.readLink}>
+                  Read Article →
+                </Link>
+              </div>
+            </article>
           ))
         )}
       </div>

@@ -26,36 +26,43 @@ const BlogDetails = () => {
     fetchBlog();
   }, [id]);
 
-  // Loading, error, and empty state handles wrapped in the style container for uniform appearance
-  if (loading) return <div className={style.blogContainer}><p className={style.statusText}>Loading blog...</p></div>;
-  if (error) return <div className={style.blogContainer}><p className={style.statusText}>Error: {error}</p></div>;
-  if (!blog) return <div className={style.blogContainer}><p className={style.statusText}>No blog found.</p></div>;
+  // Unified loading and error wrappers matching the deep site layout canvas
+  if (loading) return <div className={style.statusContainer}><p className={style.statusText}>Loading article details...</p></div>;
+  if (error) return <div className={style.statusContainer}><p className={style.statusText}>Error: {error}</p></div>;
+  if (!blog) return <div className={style.statusContainer}><p className={style.statusText}>No blog post found.</p></div>;
 
   return (
-    /* Changed container classes to use style modules for consistent layout mapping */
     <div className={style.blogContainer}>
-      <h2 className={style.blogTitle}>{blog.title}</h2>
+      {/* Article Header Context Meta */}
+      <header className={style.articleHeader}>
+        <span className={`${style.categoryTag} ${style[blog.category]}`}>
+          {blog.category}
+        </span>
+        <h1 className={style.blogTitle}>{blog.title}</h1>
+        
+        {/* Author Bylines and Dates combined onto a clean editorial line */}
+        <div className={style.blogAuthor}>
+          <div className={style.avatar}>
+            {(blog.author?.userName || "M").charAt(0).toUpperCase()}
+          </div>
+          <span className={style.metaText}>
+            Written by <strong>{blog.author?.userName || "Anonymous"}</strong> — {blog.createdAt ? new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : "Recent"}
+          </span>
+        </div>
+      </header>
 
-      <p className={style.blogCategory}>
-        <strong>Category:</strong> {blog.category}
-      </p>
-      
-      <div className={style.blogBody}>{blog.body}</div>
+      {/* Main Narrative Body Text */}
+      <article className={style.blogBody}>{blog.body}</article>
 
-      <p className={style.blogAuthor}>
-        <strong>By:</strong> {blog.author?.userName} |{" "}
-        <em>{blog.createdAt ? new Date(blog.createdAt).toDateString() : "No date"}</em>
-      </p>
-
-      {/* Structured flexbox configuration for desktop layouts */}
-      <div className={style.backButtons}>
-        <Link to="/#latest">
-          <button className={style.redirect}>← Back to Home</button>
+      {/* Functional Text-Link Back Navigation Buttons */}
+      <footer className={style.backButtonsContainer}>
+        <Link to="/#latest" className={style.redirectLink}>
+          ← Back to Stories
         </Link>
-        <Link to="/userBlogs">
-          <button className={style.redirect}>← Back to All Blogs</button>
+        <Link to="/userBlogs" className={style.redirectLink}>
+          View All Blogs →
         </Link>
-      </div>
+      </footer>
     </div>
   );
 };

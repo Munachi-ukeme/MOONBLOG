@@ -1,98 +1,107 @@
-/* Container bounds */
+/* --- Master Layout Framework --- */
 .aboutContainer {
-  max-width: 850px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-  color: #E0E0E0; /* Soft readable white */
-  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 780px; /* Slimmer text measure is scientifically proven to reduce reading fatigue */
+  margin: 5rem auto;
+  padding: 0 2rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Base layouts for text cards */
+/* --- Clean Static Article Cards --- */
 .aboutSection {
-  background-color: #121212; /* Matches navbar dark canvas */
-  padding: 2.5rem;
+  background-color: #1E293B; /* Elevated Muted Slate */
+  border: 1px solid #334155;
+  padding: 3rem 2.5rem;
   border-radius: 12px;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 2.5rem;
 }
 
-/* Layout section headers */
-.aboutSection h2 {
-  font-size: 1.8rem;
-  color: #FFFFFF; /* Pure structural white */
-  margin-top: 0;
-  margin-bottom: 1rem;
+/* --- Typographic Scale Hierarchies --- */
+.pageHeading {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #FFFFFF; /* Pure Accent White */
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
 }
 
-/* Global main section header title override hook */
-.name {
-  color: #8B5CF6 !important; /* Neon Purple Brand Accent */
-  font-size: 2.4rem !important;
+.subHeading {
+  font-size: 1.35rem;
   font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 1.25rem;
 }
 
-/* Paragraph styling */
-.aboutSection p {
+/* --- Paragraph Treatments --- */
+.leadParagraph {
   font-size: 1.1rem;
-  line-height: 1.7;
-  color: #D1D5DB; /* Clean contrasting silver hue */
-  margin-bottom: 1rem;
+  line-height: 1.65;
+  color: #CBD5E1; /* High contrast silver-white for top descriptions */
 }
 
-.aboutSection p:last-child {
+.bodyText {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #94A3B8; /* Smooth Silver Readability Hue */
+  margin-bottom: 1.25rem;
+}
+
+.bodyText:last-child {
   margin-bottom: 0;
 }
 
-/* Feature Checklists */
+/* --- Muted Bullet Checklist Configuration --- */
 .aboutList {
-  padding-left: 1.2rem;
+  padding: 0;
   margin: 0;
-}
-
-.aboutList li {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #D1D5DB;
-  margin-bottom: 0.8rem;
-  position: relative;
   list-style: none;
 }
 
-/* Custom Bullet Points */
+.aboutList li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #94A3B8;
+  margin-bottom: 0.85rem;
+  position: relative;
+  padding-left: 1.5rem; /* Leaves absolute clearance lane for custom list icons */
+}
+
+/* Custom editorial bullet shapes replacing harsh purple code dots */
 .aboutList li::before {
-  content: "•";
-  color: #8B5CF6; /* Purple bullet dots */
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
+  content: "—"; /* Elegant typography hyphen line */
+  color: #A78BFA; /* Soft Lavender Accent */
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .aboutList li:last-child {
   margin-bottom: 0;
 }
 
-/* Distinct Warning Frame for Disclaimers */
+/* --- Sophisticated Warning Disclaimer Border Box --- */
 .disclaimer {
-  border-left: 4px solid #8B5CF6; /* Purple warning stripe */
-  background-color: #1E1E24; /* Slightly lighter container depth indicator */
+  border-left: 4px solid #A78BFA; /* Muted lavender side bar replaces glowing neon accents */
+  background-color: rgba(30, 41, 59, 0.6); /* Slightly darker card layer for contrast emphasis */
 }
 
-.disclaimer h2 {
-  color: #8B5CF6;
-}
-
-/* Responsive adjustment layer targeting handheld screens */
+/* --- Responsive Smartphone Viewports Adaptation --- */
 @media (max-width: 600px) {
   .aboutContainer {
-    margin: 1rem auto;
+    margin: 3rem auto;
+    padding: 0 1.25rem;
   }
   
   .aboutSection {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.75rem;
   }
 
-  .name {
-    font-size: 1.85rem !important;
+  .pageHeading {
+    font-size: 1.75rem;
+  }
+  
+  .subHeading {
+    font-size: 1.2rem;
   }
 }

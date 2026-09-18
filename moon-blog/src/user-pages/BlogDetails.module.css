@@ -1,98 +1,142 @@
-/* Core article window frame */
+/* --- Master Layout Framework --- */
 .blogContainer {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2.5rem 2rem;
-  background-color: #121212; /* Matches navbar dark canvas */
-  color: #E0E0E0; /* Soft, easy-to-read off-white */
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  max-width: 720px; /* Scientifically proven optimal character-per-line width for reading long forms */
+  margin: 5rem auto;
+  padding: 0 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* --- Article Header Section --- */
+.articleHeader {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 2rem;
+}
+
+.categoryTag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+/* Tinted topic labels matching home and category lists */
+.categoryTag.Tech {
+  color: #38BDF8;
+  background-color: rgba(56, 189, 248, 0.12);
+}
+
+.categoryTag.Business {
+  color: #34D399;
+  background-color: rgba(52, 211, 153, 0.12);
+}
+
+.categoryTag.Education {
+  color: #FBBF24;
+  background-color: rgba(251, 191, 36, 0.12);
 }
 
 .blogTitle {
   font-size: 2.5rem;
-  color: #FFFFFF; /* Pure structural white for headers */
-  margin-bottom: 0.5rem;
+  font-weight: 800;
+  color: #FFFFFF; /* Pure Structural Accent White */
   line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
 }
 
-.blogCategory {
-  display: inline-block;
-  font-size: 0.9rem;
-  color: #8B5CF6; /* Neon Purple highlights */
-  background-color: rgba(139, 92, 246, 0.1); /* Subtle dark purple accent bubble */
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  margin-bottom: 2rem;
-}
-
-.blogBody {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: #D1D5DB; /* Clean contrasting silver paragraph hue */
-  white-space: pre-wrap; /* Keeps user linebreaks intact from inputs */
-  margin-bottom: 2.5rem;
-  letter-spacing: -0.011em;
-}
-
+/* --- Author Meta Details Row --- */
 .blogAuthor {
-  font-size: 0.95rem;
-  color: #9CA3AF; /* Dimmed secondary metadata */
-  border-top: 1px solid #1E1E24;
-  padding-top: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-/* Functional Navigation Grid Hooks */
-.backButtons {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap; /* Wraps clean layout blocks on smaller viewports */
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.redirect {
-  background-color: #1E1E24; /* Elevated slate frame */
-  color: #E0E0E0;
-  border: 1px solid #333339;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #1E293B;
+  color: #A78BFA;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #334155;
 }
 
-.redirect:hover {
-  background-color: #8B5CF6; /* Transitions button structure into vibrant brand colors on click hover */
-  color: #FFFFFF;
-  border-color: #8B5CF6;
-  transform: translateY(-1px);
+.metaText {
+  font-size: 0.9rem;
+  color: #64748B;
 }
 
-/* Helper handling text displays for errors / loaders */
-.statusText {
+.metaText strong {
+  color: #CBD5E1;
+}
+
+/* --- The Main Reading Body Text Canvas --- */
+.blogBody {
+  font-size: 1.05rem; /* Slightly larger size optimized specifically for full post viewports */
+  line-height: 1.75; /* Generous vertical spacing prevents reading line-skips */
+  color: #CBD5E1; /* High contrast reading silver */
+  white-space: pre-wrap; /* Accurately renders admin layout spacing line breaks */
+  margin-bottom: 4rem;
+  letter-spacing: -0.005em;
+}
+
+/* --- Footer Navigation Grid links --- */
+.backButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #334155;
+  padding-top: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.redirectLink {
+  color: #A78BFA; /* Clean Lavender Link */
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.redirectLink:hover {
+  color: #C084FC;
+  text-decoration: underline; /* Standard text feedback indicator */
+}
+
+/* --- Error & Loading State Wrappers --- */
+.statusContainer {
+  max-width: 720px;
+  margin: 8rem auto;
   text-align: center;
-  font-size: 1.2rem;
-  color: #9CA3AF;
-  padding: 3rem 0;
 }
 
-/* Responsive adjustment layer targeting handheld viewports */
+.statusText {
+  font-size: 1.1rem;
+  color: #64748B;
+}
+
+/* --- Handheld Responsive Viewports Tuning --- */
 @media (max-width: 600px) {
   .blogContainer {
-    margin: 1rem;
-    padding: 1.5rem 1rem;
+    margin: 3rem auto;
+    padding: 0 1.25rem;
   }
-  
+
   .blogTitle {
     font-size: 1.85rem;
   }
 
-  .backButtons {
-    flex-direction: column; /* Stacks button alignments evenly inside tiny grid lanes */
-  }
-
-  .backButtons a, 
-  .redirect {
-    width: 100%;
+  .blogBody {
+    font-size: 1rem;
+    line-height: 1.65;
   }
 }

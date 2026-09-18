@@ -1,48 +1,62 @@
-/* --- Modern Night Theme Variables --- */
+/* --- Master Header Layout Panel --- */
 .navContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  padding: 1rem 2rem;
-  background-color: #121212; /* Deep Charcoal/Off-Black */
-  border-bottom: 1px solid #1E1E24; /* Subtle layout divider */
+  padding: 1.25rem 2rem;
+  background-color: #1E293B; /* Elevated Muted Slate */
+  border-bottom: 1px solid #334155; /* Subtle layout section divider */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  z-index: 1000;
+}
+
+.brandLink {
+  text-decoration: none;
 }
 
 .webName {
-  color: #8B5CF6; /* Neon Purple Brand Accent */
+  color: #FFFFFF; /* Pure Accent White for clear brand presence */
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
+/* --- Navigation Links Horizontal Group --- */
 .links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .links a {
-  color: #E0E0E0; /* Soft readable white */
+  color: #94A3B8; /* Smooth Silver Readability font */
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
-/* Hovering turns links purple */
+/* Immediate text color swap target — no transitions */
 .links a:hover {
-  color: #8B5CF6; 
+  color: #A78BFA; /* Soft Lavender active item accent */
 }
 
-/* Styled Category Selector */
+/* --- Muted Styled Category Dropdown --- */
 .categorySelect {
-  background-color: #1E1E24;
-  color: #E0E0E0;
-  border: 1px solid #333;
-  padding: 0.4rem 0.8rem;
+  background-color: #0F172A; /* Embedded site canvas deep background color */
+  color: #94A3B8;
+  border: 1px solid #334155;
+  padding: 0.45rem 1rem;
   border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
   outline: none;
   cursor: pointer;
+}
+
+.categorySelect:focus {
+  border-color: #A78BFA; /* Lavender frame highlight while active */
 }
 
 /* --- Mobile Hamburger Setup --- */
@@ -55,32 +69,35 @@
 
 .bar {
   display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #E0E0E0; /* Menu lines match text */
-  transition: 0.3s ease;
+  width: 22px;
+  height: 2px;
+  background-color: #94A3B8; /* Menu lines match primary text hue */
+  border-radius: 1px;
 }
 
-/* --- Responsive Breakpoint --- */
+/* --- Responsive Smartphone Breakpoint --- */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
   }
 
-  /* Morph into an X when menu is opened */
+  /* Static crisp rotation to form an "X" layout symbol — no animated delays */
   .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-    background-color: #8B5CF6;
+    transform: translateY(7px) rotate(45deg);
+    background-color: #A78BFA;
   }
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
+  .hamburger.active .active .bar:nth-child(2) {
+    opacity: 0;
+  }
   .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-    background-color: #8B5CF6;
+    transform: translateY(-7px) rotate(-45deg);
+    background-color: #A78BFA;
   }
 
-  /* The hidden drawer container on mobile devices */
+  /* Hidden absolute stacked link layout block container on mobile devices */
   .links {
     display: none;
     flex-direction: column;
@@ -88,14 +105,25 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #121212;
-    padding: 1.5rem 0;
-    gap: 1.5rem;
-    border-bottom: 1px solid #1E1E24;
-    z-index: 100;
+    background-color: #1E293B;
+    padding: 2rem 0;
+    gap: 1.75rem;
+    border-bottom: 1px solid #334155;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.4);
   }
 
-  /* Show mobile link block when clicked open */
+  .links a {
+    width: 100%;
+    text-align: center;
+    padding: 0.25rem 0;
+  }
+
+  .categorySelect {
+    width: 80%; /* Centers the selector box nicely within the mobile drawer list */
+    text-align: center;
+  }
+
+  /* Exposes the mobile navigation layout drawer list to active view */
   .links.navOpen {
     display: flex;
   }

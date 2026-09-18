@@ -1,123 +1,198 @@
-/* Main Page Content Wrapper */
+/* --- Master Layout Framework --- */
 .cardContainer {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-  color: #E0E0E0; /* Soft readable white */
-  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 1140px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Category Page Section Title */
+.pageHeader {
+  border-bottom: 2px solid #1E293B;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+}
+
 .title {
-  font-size: 2rem;
-  color: #FFFFFF; /* Pure accent white */
-  margin-bottom: 2rem;
+  font-size: 1.85rem;
   font-weight: 700;
-  border-left: 4px solid #8B5CF6; /* Left border accent line */
-  padding-left: 0.75rem;
+  color: #FFFFFF; /* Crisp White Header */
+  letter-spacing: -0.01em;
 }
 
-/* Responsive CSS Grid Configuration */
+/* --- Static Non-AI Article Grid --- */
 .blogList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2.5rem;
 }
 
-/* Individual Post Card Surface */
+/* --- Clean Article Card Canvas --- */
 .blogCard {
-  background-color: #121212; /* Matches navbar canvas */
-  border: 1px solid #1E1E24;
+  background-color: #1E293B; /* Premium Slate Backdrop */
+  border: 1px solid #334155;
   border-radius: 12px;
-  padding: 1.75rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Lift cards slightly up when hovered */
+/* Static border highlight on focus — no lifts, drops, or scales */
 .blogCard:hover {
-  transform: translateY(-4px);
-  border-color: #8B5CF6; /* Border lights up purple on hover */
+  border-color: #475569;
 }
 
-.blogTitle {
-  font-size: 1.4rem;
-  color: #FFFFFF;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  line-height: 1.3;
+.cardContent {
+  display: flex;
+  flex-direction: column;
 }
 
-.blogAuthor {
-  font-size: 0.85rem;
-  color: #9CA3AF; /* Dim gray metadata details */
+/* --- Meta Top Information Row --- */
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1.25rem;
 }
 
-.blogAuthor strong {
-  color: #8B5CF6; /* Highlight author handle */
+.categoryTag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+
+/* Desaturated clean tint color mappings */
+.categoryTag.Tech {
+  color: #38BDF8;
+  background-color: rgba(56, 189, 248, 0.12);
+}
+
+.categoryTag.Business {
+  color: #34D399;
+  background-color: rgba(52, 211, 153, 0.12);
+}
+
+.categoryTag.Education {
+  color: #FBBF24;
+  background-color: rgba(251, 191, 36, 0.12);
+}
+
+.blogDate {
+  font-size: 0.85rem;
+  color: #64748B;
+}
+
+/* --- Core Typographic Scaling --- */
+.blogTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.35;
+  margin: 0 0 0.75rem 0;
+}
+
+/* Static font color switch on hover */
+.blogCard:hover .blogTitle {
+  color: #A78BFA; /* Soft Lavender highlight */
 }
 
 .blogBody {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #D1D5DB; /* Clean contrasting silver hue */
-  margin-bottom: 1.5rem;
-  flex-grow: 1; /* Pushes the 'Read More' buttons to line up evenly */
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #94A3B8; /* Silver Readability text */
+  margin-bottom: 2rem;
 }
 
-/* Accent Trigger Action Button */
-.readMore {
-  background-color: #1E1E24; /* Elevated container slate */
-  color: #E0E0E0;
-  border: 1px solid #333339;
-  padding: 0.6rem 1.2rem;
-  width: 100%; /* Spans full card row width on mobile screen paths */
-  border-radius: 6px;
+/* --- Card Action Footer Controls --- */
+.cardFooter {
+  border-top: 1px solid #334155;
+  padding-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.authorContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* Initial initial profile avatar bubble marker */
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #0F172A;
+  color: #A78BFA;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #334155;
+}
+
+.authorName {
+  font-size: 0.85rem;
+  color: #64748B;
+}
+
+.authorName strong {
+  color: #CBD5E1;
+}
+
+/* Simple text link reading button interface */
+.readLink {
+  color: #A78BFA;
+  font-size: 0.9rem;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  text-decoration: none;
 }
 
-.readMore:hover {
-  background-color: #8B5CF6; /* Shifts button background to neon purple glow */
-  color: #FFFFFF;
-  border-color: #8B5CF6;
+.readLink:hover {
+  color: #C084FC;
+  text-decoration: underline; /* Simple text emphasis fallback rule */
 }
 
-/* Status Notifications Layout Blocks (Grid Column Overrides) */
+/* --- Status System Feedback Windows --- */
 .statusMessage {
   grid-column: 1 / -1;
   text-align: center;
-  font-size: 1.2rem;
-  color: #9CA3AF;
-  padding: 3rem 0;
+  font-size: 1.1rem;
+  color: #64748B;
+  padding: 4rem 0;
 }
 
 .emptyMessage {
-  color: #6B7280;
   font-style: italic;
 }
 
 .errorMessage {
-  color: #EF4444; /* Clean system bright red */
-  text-align: center;
-  font-weight: bold;
+  color: #F87171;
+  background-color: rgba(248, 113, 113, 0.08);
   padding: 1rem;
-  background-color: rgba(239, 68, 68, 0.1);
   border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
   margin-bottom: 2rem;
 }
 
-/* Adjustments for tight smartphone viewports */
-@media (max-width: 480px) {
-  .blogList {
-    grid-template-columns: 1fr; /* Stacks single column configurations on tiny panels */
+/* --- Smartphone Screen Adapters --- */
+@media (max-width: 768px) {
+  .cardContainer {
+    margin: 3.5rem auto;
+    padding: 0 1.25rem;
   }
-  
+
+  .blogList {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
   .title {
     font-size: 1.6rem;
   }

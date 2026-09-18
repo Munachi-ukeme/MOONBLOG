@@ -1,23 +1,26 @@
-/* 1. Global Box-Sizing and Margin/Padding Reset */
+/* 1. Global Box-Sizing and Master Margin/Padding Eraser */
 *, *::before, *::after {
   box-sizing: border-box !important;
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;    /* 💎 Added !important to permanently kill edge margins */
+  padding: 0 !important;   /* 💎 Added !important to permanently kill edge paddings */
 }
 
-/* 2. Unified Master Canvas Setup */
+/* 2. Unified Master Canvas Setup (Premium Deep Slate Editorial) */
+:root,
 html, 
 body, 
 #root {
-  background-color: #0b0b0d !important; /* Force true background dark hues everywhere */
-  color: #E0E0E0; /* Soft readable white font base default */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #0F172A !important; /* Premium Deep Slate base floor canvas */
+  color: #94A3B8; /* Smooth Silver Readability text */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   width: 100% !important;
   max-width: 100% !important;
   min-height: 100vh !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden !important; /* Locks out right-side white pixel bleeding columns */
+  height: 100% !important;
+  position: absolute !important; /* Latches layout nodes securely to browser bounds */
+  top: 0 !important;
+  left: 0 !important;
+  overflow-x: hidden !important; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -28,17 +31,17 @@ body,
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b0b0d; 
+  background: #0F172A; /* Matches site deep slate background */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1E1E24; 
+  background: #1E293B; /* Matches component muted slate cards */
   border-radius: 5px;
-  border: 2px solid #0b0b0d;
+  border: 2px solid #0F172A;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8B5CF6; /* Scrollbar highlights neon purple when grabbed */
+  background: #A78BFA; /* Scrollbar highlights soft lavender when active */
 }
 
 /* 4. Global Image Layout Security Anchors */

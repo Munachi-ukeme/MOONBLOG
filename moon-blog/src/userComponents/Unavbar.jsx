@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import style from "./Unavbar.module.css";
 
 const Unavbar = ({ onCategoryChange }) => {
-  // State to track if the mobile hamburger menu is open
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -17,12 +16,12 @@ const Unavbar = ({ onCategoryChange }) => {
   return (
     <div>
       <header className={style.navContainer}>
-        {/* Brand Logo */}
-        <Link to="/" onClick={closeMenu}>
+        {/* Brand Logo Link */}
+        <Link to="/" onClick={closeMenu} className={style.brandLink}>
           <h1 className={style.webName}>Moon Blog</h1>
         </Link>
 
-        {/* Hamburger Icon for Mobile */}
+        {/* Static Hamburger Icon Trigger for Mobile Viewports */}
         <div 
           className={`${style.hamburger} ${isOpen ? style.active : ""}`} 
           onClick={toggleMenu}
@@ -32,13 +31,13 @@ const Unavbar = ({ onCategoryChange }) => {
           <span className={style.bar}></span>
         </div>
 
-        {/* Navigation Links */}
+        {/* Header Content Actions Layout Navigation */}
         <nav className={`${style.links} ${isOpen ? style.navOpen : ""}`}>
           <Link to="/" onClick={closeMenu}>Home</Link>
           <Link to="/userAbout" onClick={closeMenu}>About</Link>
           <Link to="/userBlogs" onClick={closeMenu}>Blogs</Link>
           
-          {/* Category Dropdown (Now always available to public readers) */}
+          {/* Muted Custom Category Dropdown Selector */}
           <select 
             onChange={(e) => {
               onCategoryChange(e.target.value);
@@ -58,4 +57,3 @@ const Unavbar = ({ onCategoryChange }) => {
 };
 
 export default Unavbar;
-

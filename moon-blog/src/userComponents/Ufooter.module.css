@@ -1,22 +1,23 @@
+/* --- Master Footer Container Framework --- */
 .footerContainer {
-  background-color: #121212; /* Elevation slate background matching navbar */
-  border-top: 1px solid #1E1E24;
-  color: #E0E0E0;
-  padding: 4rem 2rem 2rem 2rem;
-  font-family: system-ui, -apple-system, sans-serif;
-  margin-top: 4rem;
+  background-color: #1E293B; /* Matches elevated slate layout elements */
+  border-top: 1px solid #334155;
+  color: #94A3B8; /* Smooth Silver Readability Hue */
+  padding: 5rem 2rem 2.5rem 2rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin-top: 6rem;
 }
 
 .contentsContainer {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
-/* --- Newsletter Styling --- */
+/* --- Newsletter Forms Layout --- */
 .newsletterForm {
   margin-bottom: 4rem;
-  border-bottom: 1px solid #1E1E24;
-  padding-bottom: 3rem;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 3.5rem;
 }
 
 .newsletter {
@@ -28,56 +29,56 @@
 }
 
 .newsTitle {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  color: #FFFFFF;
-  letter-spacing: 0.1em;
+  color: #FFFFFF; /* Crisp White Header */
+  letter-spacing: 0.08em;
   margin: 0;
 }
 
 .inputGroup {
   display: flex;
   width: 100%;
-  max-width: 500px;
-  border-radius: 8px;
+  max-width: 480px;
+  border-radius: 6px;
   overflow: hidden;
-  border: 1px solid #333339;
+  border: 1px solid #334155;
 }
 
 .emailInput {
   flex: 1;
-  background-color: #1E1E24;
+  background-color: #0F172A; /* Direct slate canvas color drop-in */
   border: none;
   padding: 0.8rem 1.2rem;
   color: #FFFFFF;
-  font-size: 1rem;
+  font-size: 0.95rem;
   outline: none;
 }
 
 .emailInput::placeholder {
-  color: #6B7280;
+  color: #475569;
 }
 
 .subscribeBtn {
-  background-color: #8B5CF6; /* Neon Purple */
-  color: #FFFFFF;
+  background-color: #A78BFA; /* Clean Soft Lavender */
+  color: #0F172A;
   border: none;
   padding: 0 1.5rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 .subscribeBtn:hover {
-  background-color: #7C3AED;
+  background-color: #C084FC; /* Immediate static color shift */
 }
 
-/* --- Columns Layout Grid --- */
+/* --- Informational Columns Responsive Layout --- */
 .footerRow {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.5rem;
-  margin-bottom: 3.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
 }
 
 .footerColumn {
@@ -87,70 +88,68 @@
 }
 
 .columnHeading {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #FFFFFF;
   margin: 0;
-  font-weight: 600;
-  position: relative;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-/* Quick Links Nav List */
+/* Nav Item Link Collections */
 .linkList {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.8rem;
 }
 
 .linkList a, .fakeLink {
-  color: #9CA3AF;
+  color: #94A3B8;
   text-decoration: none;
   font-size: 0.95rem;
-  transition: color 0.2s ease;
+  font-weight: 500;
 }
 
-.linkList a:hover {
-  color: #8B5CF6; /* Purple highlight on link hover */
+.linkList a:hover, .fakeLink:hover {
+  color: #A78BFA; /* Immediate static text link focus indicator */
 }
 
 .fakeLink {
   cursor: pointer;
 }
 
-/* Contact Info Items */
+/* Contact Geometry Blocks */
 .contactItem {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  color: #9CA3AF;
+  color: #94A3B8;
   font-size: 0.95rem;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .icon {
-  color: #8B5CF6; /* Icons pop in purple */
-  margin-top: 0.2rem;
+  color: #A78BFA; /* Soft icons pop in desaturated lavender */
+  margin-top: 0.25rem;
   flex-shrink: 0;
 }
 
-/* Social Icon Row */
+/* Brand Anchor Icon Grid Rows */
 .socialLinks {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .socialLinks a {
-  color: #9CA3AF;
-  transition: transform 0.2s ease, color 0.2s ease;
+  color: #64748B; /* Muted standard icon layouts */
 }
 
 .socialLinks a:hover {
-  color: #8B5CF6;
-  transform: translateY(-2px);
+  color: #A78BFA;
 }
 
-/* --- Copyright Bottom Strip --- */
+/* --- Base Copyright Strip Layout --- */
 .bottomStrip {
-  border-top: 1px solid #1E1E24;
+  border-top: 1px solid #334155;
   padding-top: 2rem;
   text-align: center;
 }
@@ -161,7 +160,7 @@
   justify-content: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  color: #6B7280;
+  color: #475569;
   flex-wrap: wrap;
 }
 
@@ -169,10 +168,11 @@
   flex-shrink: 0;
 }
 
-/* --- Responsive Layout Breaks --- */
+/* --- Mobile Viewport Layout Controls --- */
 @media (max-width: 600px) {
   .footerContainer {
-    padding: 3rem 1.5rem 1.5rem 1.5rem;
+    padding: 4rem 1.25rem 2rem 1.25rem;
+    margin-top: 4rem;
   }
 
   .inputGroup {
@@ -184,11 +184,12 @@
 
   .emailInput, .subscribeBtn {
     border-radius: 6px;
-    padding: 0.8rem;
+    padding: 0.85rem;
     width: 100%;
   }
 
   .footerRow {
-    gap: 2rem;
+    gap: 2.25rem;
+    margin-bottom: 3rem;
   }
 }
