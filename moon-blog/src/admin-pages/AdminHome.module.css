@@ -1,22 +1,28 @@
-/* Core viewport layout split mapping screen bounds */
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* Core viewport split layout setup */
 .portalContainer {
   display: flex;
   min-height: 100vh;
-  background-color: #0b0b0d; /* Universal deep abyss background canvas */
-  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #0B0F19; /* Midnight Slate Background Canvas */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow: hidden;
 }
 
-/* --- Left Column Layout (The Login Form Wrapper) --- */
+/* --- Left Column Layout (The Login Form Wrapper Card) --- */
 .portalLeft {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #121212; /* Elevation slate panel background */
+  background-color: #1E293B; /* Steel Blue Panel Layer */
   padding: 2.5rem;
   z-index: 10;
-  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.4);
 }
 
 .formWrapper {
@@ -24,14 +30,14 @@
   max-width: 400px;
 }
 
-/* --- Right Column Layout (Hero Creative Asset Showcase) --- */
+/* --- Right Column Layout (Hero Creative Asset Panel) --- */
 .portalRight {
   flex: 1.4;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #0b0b0d;
+  background-color: #0B0F19;
 }
 
 .portalPic {
@@ -43,66 +49,184 @@
   left: 0;
 }
 
-/* Deep overlay gradient mask blending the right image smoothly into your dark theme */
+/* Deep overlay gradient mask blending the hero photo cleanly into dark mode */
 .imageOverlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, #121212, rgba(11, 11, 13, 0.75));
+  background: linear-gradient(to right, #1E293B, rgba(11, 15, 25, 0.85));
   z-index: 2;
 }
 
-/* --- Admin Welcome Graphic Typography Overlay --- */
+/* --- Admin Welcome Card Overlay --- */
 .welcomeMessage {
   position: relative;
   z-index: 3;
   text-align: center;
-  max-width: 500px;
-  padding: 2rem;
-  background-color: rgba(18, 18, 18, 0.45); /* Frosty acrylic dark filter frame */
+  max-width: 460px;
+  padding: 2.5rem;
+  background-color: rgba(15, 23, 42, 0.6); /* Matte Abyss Dark transparent tint */
   backdrop-filter: blur(12px);
-  border-radius: 16px;
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 .welcomeHeader {
   font-size: 2.2rem;
   font-weight: 800;
-  color: #FFFFFF;
+  color: #FFFFFF; /* Pure White Heading */
   margin: 0 0 0.75rem 0;
   letter-spacing: -0.02em;
 }
 
-/* Neon purple anchor element highlights */
+/* Custom Soft Lavender accent indicator bar */
 .welcomeHeader::after {
   content: "";
   display: block;
-  width: 50px;
+  width: 45px;
   height: 4px;
-  background-color: #8B5CF6;
-  margin: 0.75rem auto 0 auto;
+  background-color: #A78BFA; /* Soft Lavender Accent */
+  margin: 0.85rem auto 0 auto;
   border-radius: 2px;
 }
 
 .welcomeSubheader {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: #D1D5DB; /* Contrasting silver readability layer */
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #94A3B8; /* Muted Steel readibility gray */
   margin: 0;
+}
+
+/* ==========================================================================
+   🚨 LOGIN FORM ELEMENT STYLES (IMPORTED INTO LOGIN.JSX)
+   ========================================================================== */
+
+.loginBox {
+  width: 100%;
+}
+
+.formbag {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginHeader {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.loginformbag {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  color: #94A3B8; /* Muted Steel Labels */
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.input {
+  background-color: #0F172A; /* Abyss Dark Matte Input fields */
+  color: #FFFFFF;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  width: 100%;
+  height: 46px;
+  font-size: 0.95rem;
+  padding: 0 1rem;
+  outline: none;
+}
+
+/* Static input focus border adjustment */
+.input:focus {
+  border-color: #A78BFA; /* Soft Lavender */
+}
+
+.input::placeholder {
+  color: #475569;
+}
+
+/* Submit Action Button styling rules */
+.btn {
+  width: 100%;
+  height: 46px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+/* Button behavior parameters */
+.btn:disabled {
+  background-color: #2D3748;
+  color: #475569;
+  cursor: not-allowed;
+}
+
+.btn:not(:disabled) {
+  background-color: #A78BFA; /* Soft Lavender Submissions */
+  color: #0B0F19;
+  cursor: pointer;
+}
+
+.btn:not(:disabled):hover {
+  background-color: #C084FC; /* Immediate static color shift */
+}
+
+/* Secondary Navigation Links */
+.forget {
+  text-align: center;
+  margin-top: 2rem;
+  color: #64748B;
+  font-size: 0.9rem;
+}
+
+.forgetpassword {
+  color: #A78BFA;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.4rem;
+}
+
+.forgetpassword:hover {
+  text-decoration: underline;
+}
+
+/* Internal Dynamic Warning Label Notification Box */
+.errorMessage {
+  color: #F87171; /* Desaturated system alert red */
+  background-color: rgba(248, 113, 113, 0.08);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #F87171;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
 /* --- Responsive Smartphone Viewport Adaptation Layers --- */
 @media (max-width: 900px) {
-  /* Hides the hero graphic assets completely on mobile to prioritize form functionality layout */
   .portalRight {
-    display: none;
+    display: none; /* Hides the side banner graphic completely on mobile */
   }
   
   .portalLeft {
-    padding: 1.5rem;
+    background-color: #0B0F19; /* Fades down to core background canvas color on mobile */
+    padding: 2rem 1.5rem;
     box-shadow: none;
   }
 }

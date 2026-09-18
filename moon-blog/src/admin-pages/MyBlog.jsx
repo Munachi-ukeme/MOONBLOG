@@ -39,7 +39,6 @@ function MyBlogs() {
       });
 
       if (response.ok) {
-        // Remove deleted blog from state
         setBlogs(blogs.filter((blog) => blog._id !== id));
         setIsSuccess(true);
         setStatusMsg("Blog deleted successfully! 🗑️");
@@ -77,21 +76,22 @@ function MyBlogs() {
       {blogs.length === 0 ? (
         <p className={style.emptyblog}>No blog entries found in your database.</p>
       ) : (
-        /* Replaced invalid structural markup with a clean semantic grid array list */
         <ul className={style.bloglist}>
           {blogs.map((blog) => (
             <li key={blog._id} className={style.blogcard}>
               <div className={style.cardContent}>
+                <div className={style.metaHeader}>
+                  <span className={`${style.categoryTag} ${style[blog.category]}`}>{blog.category}</span>
+                </div>
                 <h3 className={style.blogTitle}>{blog.title}</h3>
-                <span className={style.categoryTag}>{blog.category}</span>
                 <p className={style.blogSnippet}>
-                  {blog.body ? `${blog.body.substring(0, 160)}...` : "Empty blog body content..."}
+                  {blog.body ? `${blog.body.substring(0, 140)}...` : "Empty blog body content..."}
                 </p>
               </div>
 
               <div className={style.cardFooter}>
                 <p className={style.metaText}>
-                  <strong>By:</strong> {blog.author?.userName || "Admin"} <br />
+                  By <strong>{blog.author?.userName || "Admin"}</strong> <br />
                   <em>{blog.createdAt ? new Date(blog.createdAt).toDateString() : "No date"}</em>
                 </p>
                 

@@ -1,41 +1,49 @@
 /* Universal Background Outer Page Wrapper */
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .pageWrapper {
-  background-color: #0b0b0d; /* Deep charcoal background canvas */
+  background-color: #0B0F19; /* Midnight Slate Background Canvas */
   min-height: 100vh;
   padding: 4rem 2rem;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Core Form Card Box Frame */
 .container {
-  background-color: #121212; /* Elevation panel container matching navbar */
+  background-color: #1E293B; /* Steel Blue Panel Layer */
   width: 100%;
   max-width: 850px;
   padding: 3rem;
   border-radius: 12px;
-  border: 1px solid #1E1E24;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid #334155;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .containerName {
-  color: #FFFFFF;
+  color: #FFFFFF; /* Pure Accent White */
   font-size: 2.2rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 2rem;
   position: relative;
+  letter-spacing: -0.02em;
 }
 
-/* Neon Purple under-line element accent bar */
+/* Clean Accent Line Indicator */
 .containerName::after {
   content: "";
   display: block;
   width: 45px;
   height: 4px;
-  background-color: #8B5CF6;
-  margin-top: 0.5rem;
+  background-color: #A78BFA; /* Soft Lavender Accent */
+  margin-top: 0.6rem;
   border-radius: 2px;
 }
 
@@ -52,81 +60,70 @@
 }
 
 .label {
-  color: #E0E0E0;
-  font-size: 1rem;
+  color: #94A3B8; /* Muted Steel Gray Labels */
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 /* Input Fields styling rules (Text and select dropdown inputs) */
 .input, .selectInput {
-  background-color: #1E1E24; /* Slate input rows */
+  background-color: #0F172A; /* Abyss Dark Matte Input fields */
   color: #FFFFFF;
-  border: 1px solid #333339;
+  border: 1px solid #334155;
   border-radius: 8px;
   width: 100%;
   height: 48px;
-  font-size: 1.05rem;
+  font-size: 1rem;
   padding: 0 1rem;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Textarea input canvas */
 .textarea {
-  background-color: #1E1E24;
+  background-color: #0F172A; /* Abyss Dark Matte Input fields */
   color: #FFFFFF;
-  border: 1px solid #333339;
+  border: 1px solid #334155;
   border-radius: 8px;
   width: 100%;
-  min-height: 250px;
-  font-size: 1.1rem;
+  min-height: 280px; /* Matching space to CreatePost dimensions */
+  font-size: 1.05rem;
   line-height: 1.6;
   padding: 1rem;
   outline: none;
-  resize: vertical; /* Allows resizing safely downwards only */
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  resize: vertical;
 }
 
-/* Border shifts purple when you are actively typing inside a field */
+/* Static text field highlights on typing focus — no animated transitions */
 .input:focus, .selectInput:focus, .textarea:focus {
-  border-color: #8B5CF6;
-  box-shadow: 0 0 10px rgba(139, 92, 246, 0.15);
+  border-color: #A78BFA;
 }
 
 /* Submit Action Button styling rules */
 .btn {
   height: 46px;
-  border-radius: 8px;
+  border-radius: 6px;
   border: none;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   padding: 0 2.5rem;
-  align-self: flex-start; /* Aligns clean left bound instead of full screen stretching */
-  background-color: #8B5CF6;
-  color: #FFFFFF;
+  align-self: flex-start;
+  background-color: #A78BFA; /* Soft Lavender Submissions */
+  color: #0B0F19;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-  transition: all 0.2s ease;
 }
 
 .btn:hover {
-  background-color: #7C3AED;
-  transform: translateY(-1px);
+  background-color: #C084FC; /* Immediate static text background color shift */
 }
 
-.btn:active {
-  background-color: #6D28D9;
-  transform: translateY(0);
-}
-
-/* Status Alert Message Displays (Green for success/Info, light red overlay tags on failure alerts) */
+/* Status Alert Message Displays (Green/Mint for success/Info, red for validation warning responses) */
 .successMessage {
-  color: #10B981;
-  background-color: rgba(16, 185, 129, 0.1);
+  color: #34D399; /* Mint Green Success Text */
+  background-color: rgba(52, 211, 153, 0.08);
   padding: 0.8rem 1.2rem;
   border-radius: 6px;
-  border-left: 4px solid #10B981;
+  border-left: 4px solid #34D399;
   font-weight: 600;
   margin: 0;
 }

@@ -72,7 +72,7 @@ function EditPost() {
         
         <form onSubmit={handleSubmit} className={style.formElement}>
           <div className={style.formBag}>
-            <label htmlFor="title" className={style.label}>Title:</label>
+            <label htmlFor="title" className={style.label}>Title</label>
             <input
               type="text"
               id="title"
@@ -84,7 +84,7 @@ function EditPost() {
           </div>
 
           <div className={style.formBag}>
-            <label htmlFor="category" className={style.label}>Category:</label>
+            <label htmlFor="category" className={style.label}>Category</label>
             <select
               id="category"
               value={category}
@@ -100,7 +100,7 @@ function EditPost() {
           </div>
 
           <div className={style.formBag}>
-            <label htmlFor="body" className={style.label}>Body:</label>
+            <label htmlFor="body" className={style.label}>Body Content</label>
             <textarea
               id="body"
               value={body}
@@ -110,7 +110,7 @@ function EditPost() {
             />
           </div>
 
-          <button type="submit" className={style.btn}>Update</button>
+          <button type="submit" className={style.btn}>Update Post</button>
           
           {/* Success / Error Message Display */}
           {success && <p className={style.successMessage}>{success}</p>}
